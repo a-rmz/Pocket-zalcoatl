@@ -17,6 +17,7 @@
         android:padding="5dp"
         android:background="@color/colorPrimaryDark"
         android:drawableTop="@drawable/ic_favorite_white_36dp"
+        android:textColor="@android:color/white"
         android:text="Feed"/>
 
 
@@ -29,6 +30,7 @@
         android:padding="5dp"
         android:background="@color/colorPrimary"
         android:drawableTop="@drawable/ic_hotel_white_36dp"
+        android:textColor="@android:color/white"
         android:text="Rest"/>
 
 
@@ -41,6 +43,7 @@
         android:padding="5dp"
         android:background="@color/colorPrimaryDark"
         android:drawableTop="@drawable/ic_games_white_36dp"
+        android:textColor="@android:color/white"
         android:text="Games"/>
 
 
@@ -53,6 +56,7 @@
         android:padding="5dp"
         android:background="@color/colorPrimary"
         android:drawableTop="@drawable/ic_info_white_36dp"
+        android:textColor="@android:color/white"
         android:text="Info"/>
 
 </android.support.v7.widget.Toolbar>
