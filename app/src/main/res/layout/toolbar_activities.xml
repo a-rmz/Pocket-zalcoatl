@@ -2,10 +2,57 @@
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_activities"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
-    android:layout_alignParentBottom="true"
-    android:background="@color/colorPrimaryDark">
+    android:padding="10dp"
+    android:layout_alignParentBottom="true">
+
+    <Button
+        android:id="@+id/button_feed"
+        android:layout_width="@dimen/activity_button_width"
+        android:layout_height="@dimen/activity_button_height"
+        style="?attr/borderlessButtonStyle"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:drawableTop="@drawable/ic_favorite_white_36dp"
+        android:text="Feed"/>
+
+
+    <Button
+        android:id="@+id/button_clean"
+        android:layout_width="@dimen/activity_button_width"
+        android:layout_height="@dimen/activity_button_height"
+        style="?attr/borderlessButtonStyle"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"
+        android:drawableTop="@drawable/ic_hotel_white_36dp"
+        android:text="Rest"/>
+
+
+    <Button
+        android:id="@+id/button_games"
+        android:layout_width="@dimen/activity_button_width"
+        android:layout_height="@dimen/activity_button_height"
+        style="?attr/borderlessButtonStyle"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:drawableTop="@drawable/ic_games_white_36dp"
+        android:text="Games"/>
+
+
+    <Button
+        android:id="@+id/button_info"
+        android:layout_width="@dimen/activity_button_width"
+        android:layout_height="@dimen/activity_button_height"
+        style="?attr/borderlessButtonStyle"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"
+        android:drawableTop="@drawable/ic_info_white_36dp"
+        android:text="Info"/>
 
 </android.support.v7.widget.Toolbar>
