@@ -8,55 +8,67 @@
     android:padding="10dp"
     android:layout_alignParentBottom="true">
 
-    <Button
-        android:id="@+id/button_feed"
-        android:layout_width="@dimen/activity_button_width"
-        android:layout_height="@dimen/activity_button_height"
-        style="?attr/borderlessButtonStyle"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="@color/colorPrimaryDark"
-        android:drawableTop="@drawable/ic_favorite_white_36dp"
-        android:textColor="@android:color/white"
-        android:text="Feed"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_feed"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/activity_button_height"
+            style="?attr/borderlessButtonStyle"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:drawableTop="@drawable/ic_favorite_white_36dp"
+            android:textColor="@android:color/white"
+            android:text="Feed"
+            />
 
 
-    <Button
-        android:id="@+id/button_clean"
-        android:layout_width="@dimen/activity_button_width"
-        android:layout_height="@dimen/activity_button_height"
-        style="?attr/borderlessButtonStyle"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="@color/colorPrimary"
-        android:drawableTop="@drawable/ic_hotel_white_36dp"
-        android:textColor="@android:color/white"
-        android:text="Rest"/>
+        <Button
+            android:id="@+id/button_rest"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/activity_button_height"
+            style="?attr/borderlessButtonStyle"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary"
+            android:drawableTop="@drawable/ic_hotel_white_36dp"
+            android:textColor="@android:color/white"
+            android:text="Rest"/>
 
 
-    <Button
-        android:id="@+id/button_games"
-        android:layout_width="@dimen/activity_button_width"
-        android:layout_height="@dimen/activity_button_height"
-        style="?attr/borderlessButtonStyle"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="@color/colorPrimaryDark"
-        android:drawableTop="@drawable/ic_games_white_36dp"
-        android:textColor="@android:color/white"
-        android:text="Games"/>
+        <Button
+            android:id="@+id/button_games"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/activity_button_height"
+            style="?attr/borderlessButtonStyle"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:drawableTop="@drawable/ic_games_white_36dp"
+            android:textColor="@android:color/white"
+            android:text="Games"/>
 
 
-    <Button
-        android:id="@+id/button_info"
-        android:layout_width="@dimen/activity_button_width"
-        android:layout_height="@dimen/activity_button_height"
-        style="?attr/borderlessButtonStyle"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="@color/colorPrimary"
-        android:drawableTop="@drawable/ic_info_white_36dp"
-        android:textColor="@android:color/white"
-        android:text="Info"/>
+        <Button
+            android:id="@+id/button_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/activity_button_height"
+            style="?attr/borderlessButtonStyle"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary"
+            android:drawableTop="@drawable/ic_info_white_36dp"
+            android:textColor="@android:color/white"
+            android:text="Info"/>
+
+    </LinearLayout>
 
 </android.support.v7.widget.Toolbar>
