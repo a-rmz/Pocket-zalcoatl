@@ -46,29 +46,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 life.setProgress(life.getProgress() + 10);
-                Snackbar.make(findViewById(R.id.main_screen), "Clicked feed!", Snackbar.LENGTH_SHORT).show();
             }
         });
 
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(life.getProgress() > 0) life.setProgress(life.getProgress() - 10);
-                Snackbar.make(findViewById(R.id.main_screen), "Clicked rest!", Snackbar.LENGTH_SHORT).show();
+                sleep.setProgress(sleep.getProgress() + 10);
             }
         });
 
         games.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.main_screen), "Clicked games!", Snackbar.LENGTH_SHORT).show();
+                fun.setProgress(fun.getProgress() + 10);
             }
         });
 
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.main_screen), "Clicked info!", Snackbar.LENGTH_SHORT).show();
+                life.setProgress(0);
+                sleep.setProgress(0);
+                fun.setProgress(0);
             }
         });
     }
