@@ -7,7 +7,7 @@ import android.view.View;
 import android.support.design.widget.Snackbar;
 import android.widget.Button;
 
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.akexorcist.roundcornerprogressbar.*;
 
 /**
  * Created by alex on 3/7/16.
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar actionMenu;
     Button feed, rest, games, info;
-    RoundCornerProgressBar life;
+    IconRoundCornerProgressBar life, sleep, fun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
         games = (Button) findViewById(R.id.button_games);
         info = (Button) findViewById(R.id.button_info);
 
-        life = (RoundCornerProgressBar) findViewById(R.id.life_bar);
+        life = (IconRoundCornerProgressBar) findViewById(R.id.life_bar);
+        sleep = (IconRoundCornerProgressBar) findViewById(R.id.rest_bar);
+        fun = (IconRoundCornerProgressBar) findViewById(R.id.fun_bar);
 
         setActionButtonListeners();
         setSupportActionBar(actionMenu);

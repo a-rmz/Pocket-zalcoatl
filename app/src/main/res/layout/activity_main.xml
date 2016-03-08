@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/main_screen"
                 android:orientation="vertical"
@@ -10,16 +9,9 @@
                 tools:context=".MainActivity">
 
     <!-- Include stats bar -->
-    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-        android:id="@+id/life_bar"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_margin="20dp"
-        app:rcBackgroundColor="@color/colorPrimaryDark"
-        app:rcProgressColor="@color/colorPrimary"
-        app:rcProgress="0"
-        app:rcMax="100"
-        />
+    <include
+        android:id="@+id/stats_bar"
+        layout="@layout/stats_bar"/>
 
 
     <!-- Main layout -->
