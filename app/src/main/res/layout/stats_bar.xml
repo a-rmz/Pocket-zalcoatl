@@ -10,11 +10,13 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
 
         <ImageView
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
+            android:layout_marginRight="@dimen/stat_bar_icon_margin"
             android:src="@drawable/ic_favorite_white_36dp"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -33,11 +35,13 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
 
         <ImageView
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
+            android:layout_marginRight="@dimen/stat_bar_icon_margin"
             android:src="@drawable/ic_hotel_white_36dp"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -56,11 +60,13 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
 
         <ImageView
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
+            android:layout_marginRight="@dimen/stat_bar_icon_margin"
             android:src="@drawable/ic_games_white_36dp"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
