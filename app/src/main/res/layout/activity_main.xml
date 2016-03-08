@@ -12,21 +12,12 @@
 
     <!-- Include stats bar -->
     <include
-        android:id="@+id/stats_bar"
-        layout="@layout/stats_bar"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/options_menu"
+        android:id="@+id/stats"
+        layout="@layout/top_stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
-        app:fabSize="normal"
-        android:src="@drawable/ic_games_white_36dp"
-        app:backgroundTint="@color/colorAccent"
-        app:elevation="4dp"
+        android:layout_margin="10dp"
         />
-
 
     <!-- Main layout -->
 
