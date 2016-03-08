@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar actionMenu;
     Button feed, rest, games, info;
-    IconRoundCornerProgressBar life, sleep, fun;
+    RoundCornerProgressBar life, sleep, fun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         games = (Button) findViewById(R.id.button_games);
         info = (Button) findViewById(R.id.button_info);
 
-        life = (IconRoundCornerProgressBar) findViewById(R.id.life_bar);
-        sleep = (IconRoundCornerProgressBar) findViewById(R.id.rest_bar);
-        fun = (IconRoundCornerProgressBar) findViewById(R.id.fun_bar);
+        life = (RoundCornerProgressBar) findViewById(R.id.life_bar);
+        sleep = (RoundCornerProgressBar) findViewById(R.id.rest_bar);
+        fun = (RoundCornerProgressBar) findViewById(R.id.fun_bar);
 
         setActionButtonListeners();
         setSupportActionBar(actionMenu);

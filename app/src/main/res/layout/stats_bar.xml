@@ -8,39 +8,33 @@
               android:layout_height="match_parent">
 
 
-    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
         android:id="@+id/life_bar"
         android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
         android:layout_margin="5dp"
-        app:rcIconSize="15dp"
-        app:rcIconSrc="@drawable/ic_favorite_white_36dp"
         app:rcBackgroundColor="@color/colorPrimaryDark"
         app:rcProgressColor="@color/colorPrimary"
         app:rcProgress="0"
         app:rcMax="100"
         />
 
-    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
         android:id="@+id/rest_bar"
         android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
         android:layout_margin="5dp"
-        app:rcIconSize="15dp"
-        app:rcIconSrc="@drawable/ic_hotel_white_36dp"
         app:rcBackgroundColor="@color/colorPrimaryDark"
         app:rcProgressColor="@color/colorPrimary"
         app:rcProgress="60"
         app:rcMax="100"
         />
 
-    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
         android:id="@+id/fun_bar"
         android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
         android:layout_margin="5dp"
-        app:rcIconSize="15dp"
-        app:rcIconSrc="@drawable/ic_games_white_36dp"
         app:rcBackgroundColor="@color/colorPrimaryDark"
         app:rcProgressColor="@color/colorPrimary"
         app:rcProgress="20"
