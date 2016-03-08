@@ -1,10 +1,14 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+
+import com.extremecommandos.pocket_zalcoatl.R;
 
 import com.akexorcist.roundcornerprogressbar.*;
 
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar actionMenu;
     Button feed, rest, games, info;
     RoundCornerProgressBar life, sleep, fun;
+    FloatingActionButton optionsMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         actionMenu = (Toolbar) findViewById(R.id.toolbar);
-
         feed = (Button) findViewById(R.id.button_feed);
         rest = (Button) findViewById(R.id.button_rest);
         games = (Button) findViewById(R.id.button_games);
@@ -32,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
         life = (RoundCornerProgressBar) findViewById(R.id.life_bar);
         sleep = (RoundCornerProgressBar) findViewById(R.id.rest_bar);
         fun = (RoundCornerProgressBar) findViewById(R.id.fun_bar);
+
+        optionsMenu = (FloatingActionButton) findViewById(R.id.options_menu);
+        optionsMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Options", Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
