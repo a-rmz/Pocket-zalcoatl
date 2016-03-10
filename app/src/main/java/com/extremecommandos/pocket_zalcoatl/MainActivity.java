@@ -1,15 +1,19 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 import android.app.Dialog;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.*;
+import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
 /**
  * Created by alex on 3/7/16.
@@ -54,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
+
+        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+
+        DrawSurface drawSurface = new DrawSurface(surfaceView.getContext(), surfaceView.getHolder());
+
 
 
     }
