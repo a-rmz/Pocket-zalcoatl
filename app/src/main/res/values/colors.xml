@@ -5,4 +5,7 @@
     <color name="colorBackgroundDark">#007002</color>
     <color name="colorAccent">#FCA000</color>
     <color name="main_title">#5CBA0F</color>
+
+    <color name="switch_released">#FFC800</color>
+    <color name="switch_pressed">#F29200</color>
 </resources>

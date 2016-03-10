@@ -15,4 +15,14 @@
         <item name="android:windowActionBar">false</item>
     </style>
 
+    <style name="switchOptionsButtonReleased">
+        <item name="android:starStyle">?attr/borderlessButtonStyle</item>
+        <item name="android:background">@color/switch_released</item>
+    </style>
+
+    <style name="switchOptionsButtonPressed">
+        <item name="android:buttonStyle">?attr/borderlessButtonStyle</item>
+        <item name="android:background">@color/switch_pressed</item>
+    </style>
+
 </resources>
