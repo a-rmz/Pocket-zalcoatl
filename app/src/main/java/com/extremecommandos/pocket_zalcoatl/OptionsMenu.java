@@ -1,7 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialog;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +10,10 @@ import android.widget.Button;
  */
 public class OptionsMenu extends AppCompatDialog {
 
-    AppCompatActivity activity;
+    MainActivity activity;
     Button soundOn, soundOff;
-    boolean soundState;
 
-    public OptionsMenu(AppCompatActivity activity) {
+    public OptionsMenu(MainActivity activity) {
         super(activity);
         this.activity = activity;
 
@@ -25,7 +23,6 @@ public class OptionsMenu extends AppCompatDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.options_menu);
-        soundState = true;
         setListeners();
     }
 
@@ -36,10 +33,10 @@ public class OptionsMenu extends AppCompatDialog {
         soundOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!soundState) {
+                if(!activity.getSoundState()) {
                     soundOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     soundOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    soundState = true;
+                    activity.setSoundOn();
                 }
             }
         });
@@ -47,10 +44,10 @@ public class OptionsMenu extends AppCompatDialog {
         soundOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(soundState) {
+                if(activity.getSoundState()) {
                     soundOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     soundOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    soundState = false;
+                    activity.setSoundOff();
                 }
             }
         });

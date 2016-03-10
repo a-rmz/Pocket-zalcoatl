@@ -21,11 +21,14 @@ public class MainActivity extends AppCompatActivity {
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
     OptionsMenu optionsDialog;
+    private boolean soundActive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        soundActive = true;
 
         actionMenu = (Toolbar) findViewById(R.id.toolbar);
         feed = (Button) findViewById(R.id.button_feed);
@@ -85,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 fun.setProgress(0);
             }
         });
+    }
+
+    boolean getSoundState() {
+        return soundActive;
+    }
+    void setSoundOn() {
+        soundActive = true;
+    }
+    void setSoundOff() {
+        soundActive = false;
     }
 
 }
