@@ -1,5 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button feed, rest, games, info;
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
+    OptionsMenu optionsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,14 @@ public class MainActivity extends AppCompatActivity {
         sleep = (RoundCornerProgressBar) findViewById(R.id.rest_bar);
         fun = (RoundCornerProgressBar) findViewById(R.id.fun_bar);
 
+        optionsDialog = new OptionsMenu(this);
+
         optionsMenu = (FloatingActionButton) findViewById(R.id.options_menu);
         optionsMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Options", Snackbar.LENGTH_SHORT).show();
+                optionsDialog.show();
             }
         });
 
