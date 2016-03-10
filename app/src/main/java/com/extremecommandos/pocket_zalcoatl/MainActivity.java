@@ -21,14 +21,15 @@ public class MainActivity extends AppCompatActivity {
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
     OptionsMenu optionsDialog;
-    private boolean soundActive;
+    private boolean soundActive, notifActive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        soundActive = true;
+        setSoundOn();
+        setNotifOn();
 
         actionMenu = (Toolbar) findViewById(R.id.toolbar);
         feed = (Button) findViewById(R.id.button_feed);
@@ -98,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
     }
     void setSoundOff() {
         soundActive = false;
+    }
+
+    boolean getNotifState() {
+        return notifActive;
+    }
+    void setNotifOn() {
+        notifActive = true;
+    }
+    void setNotifOff() {
+        notifActive = false;
     }
 
 }

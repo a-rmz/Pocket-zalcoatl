@@ -23,6 +23,7 @@
     <style name="switchOptionsButtonPressed">
         <item name="android:buttonStyle">?attr/borderlessButtonStyle</item>
         <item name="android:background">@color/switch_pressed</item>
+        <item name="android:height">0dp</item>
     </style>
 
 </resources>
