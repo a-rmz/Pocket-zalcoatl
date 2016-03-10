@@ -1,7 +1,10 @@
 package com.extremecommandos.pocket_zalcoatl.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Picture;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -12,6 +15,8 @@ public class DrawSurface extends SurfaceView implements Runnable{
 
     Thread draw;
     SurfaceHolder holder;
+    Bitmap bmp;
+    Canvas canvas;
     boolean isRunning = false;
 
     public DrawSurface(Context context, SurfaceHolder surfaceHolder) {
@@ -21,9 +26,10 @@ public class DrawSurface extends SurfaceView implements Runnable{
 
     }
 
-    public void update() {
-
+    public void updateImage(Bitmap bmp) {
+        this.bmp = bmp;
     }
+
 
     @Override
     public void run() {
@@ -32,8 +38,8 @@ public class DrawSurface extends SurfaceView implements Runnable{
             if(!holder.getSurface().isValid()) {
                 continue;
             }
-            Canvas canvas = holder.lockCanvas();
-            canvas.drawARGB(155, 120, 200, 30);
+            canvas = holder.lockCanvas();
+            canvas.drawBitmap(bmp, 0, 0, null);
             holder.unlockCanvasAndPost(canvas);
         }
     }

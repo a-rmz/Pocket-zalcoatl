@@ -10,7 +10,9 @@ public class PocketGod {
     private String name;
     MainActivity mainActivity;
 
+
     public PocketGod(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
+
     }
 }

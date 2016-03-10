@@ -2,17 +2,20 @@ package com.extremecommandos.pocket_zalcoatl;
 
 import android.app.Dialog;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.*;
+import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
 /**
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
     OptionsMenu optionsDialog;
+    SurfaceView characterSurfaceView;
     private boolean soundActive, notifActive;
 
     @Override
@@ -35,23 +39,14 @@ public class MainActivity extends AppCompatActivity {
         setSoundOn();
         setNotifOn();
 
-        actionMenu = (Toolbar) findViewById(R.id.toolbar);
-        feed = (Button) findViewById(R.id.button_feed);
-        rest = (Button) findViewById(R.id.button_rest);
-        games = (Button) findViewById(R.id.button_games);
-        info = (Button) findViewById(R.id.button_info);
-
-        life = (RoundCornerProgressBar) findViewById(R.id.life_bar);
-        sleep = (RoundCornerProgressBar) findViewById(R.id.rest_bar);
-        fun = (RoundCornerProgressBar) findViewById(R.id.fun_bar);
+        init();
 
         optionsDialog = new OptionsMenu(this);
 
-        optionsMenu = (FloatingActionButton) findViewById(R.id.options_menu);
+
         optionsMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Options", Snackbar.LENGTH_SHORT).show();
                 optionsDialog.show();
             }
         });
@@ -59,12 +54,25 @@ public class MainActivity extends AppCompatActivity {
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
 
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+        Animation animation = new Animation(this, 0);
 
-        DrawSurface drawSurface = new DrawSurface(surfaceView.getContext(), surfaceView.getHolder());
+    }
 
+    protected void init() {
+        actionMenu = (Toolbar) findViewById(R.id.toolbar);
 
+        feed = (Button) findViewById(R.id.button_feed);
+        rest = (Button) findViewById(R.id.button_rest);
+        games = (Button) findViewById(R.id.button_games);
+        info = (Button) findViewById(R.id.button_info);
 
+        optionsMenu = (FloatingActionButton) findViewById(R.id.options_menu);
+
+        characterSurfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+
+        life = (RoundCornerProgressBar) findViewById(R.id.life_bar);
+        sleep = (RoundCornerProgressBar) findViewById(R.id.rest_bar);
+        fun = (RoundCornerProgressBar) findViewById(R.id.fun_bar);
     }
 
 
@@ -120,4 +128,7 @@ public class MainActivity extends AppCompatActivity {
         notifActive = false;
     }
 
+    public SurfaceHolder getCharacterSurfaceHolder() {
+        return characterSurfaceView.getHolder();
+    }
 }
