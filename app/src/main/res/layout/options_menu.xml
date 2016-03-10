@@ -1,78 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/sound_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sound_caption"/>
+
+        <LinearLayout
+            android:id="@+id/layout_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sound_caption"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sound_on"
+                style="@style/switchOptionsButtonPressed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"/>
+
+            <Button
+                android:id="@+id/sound_off"
+                style="@style/switchOptionsButtonReleased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:id="@+id/notifications_caption"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:layout_centerHorizontal="true"
+           android:text="@string/notifications_caption"/>
+
+       <LinearLayout
+           android:id="@+id/layout_notif"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/notifications_caption"
+           android:layout_centerHorizontal="true"
+           android:orientation="horizontal">
+
+           <Button
+               android:id="@+id/notif_on"
+               style="@style/switchOptionsButtonPressed"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="20dp"/>
+
+           <Button
+               android:id="@+id/notif_off"
+               style="@style/switchOptionsButtonReleased"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="20dp"/>
+
+       </LinearLayout>
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/sound_caption"
-        android:layout_width="wrap_content"
+        android:id="@+id/made_with_love"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/sound_caption"/>
-
-    <LinearLayout
-        android:id="@+id/layout_sound"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/sound_on"
-            style="@style/switchOptionsButtonPressed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"/>
-
-        <Button
-            android:id="@+id/sound_off"
-            style="@style/switchOptionsButtonReleased"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"/>
-
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/notifications_caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_sound"
-        android:layout_centerHorizontal="true"
-        android:text="@string/notifications_caption"/>
-
-    <LinearLayout
-        android:id="@+id/layout_notif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/notifications_caption"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/notif_on"
-            style="@style/switchOptionsButtonPressed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"/>
-
-        <Button
-            android:id="@+id/notif_off"
-            style="@style/switchOptionsButtonReleased"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Made with ❤."
+        android:gravity="center"
+        android:text="@string/made_with_love"
+        android:layout_margin="20dp"
         />
 
-</RelativeLayout>
+</LinearLayout>

@@ -3,4 +3,6 @@
 
     <string name="sound_caption">Sound</string>
     <string name="notifications_caption">Notifications</string>
+
+    <string name="made_with_love">Made with ❤</string>
 </resources>
