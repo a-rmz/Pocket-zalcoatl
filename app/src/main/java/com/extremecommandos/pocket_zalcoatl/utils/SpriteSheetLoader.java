@@ -33,7 +33,7 @@ public class SpriteSheetLoader {
 
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < columns; j++) {
-                spriteSheet[(i * columns) + j] = Bitmap.createBitmap(source, j, i, width, height);
+                spriteSheet[(i * columns) + j] = Bitmap.createBitmap(source, (j * width), (i * height), width, height);
             }
         }
     }

@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     SurfaceView characterSurfaceView;
     private boolean soundActive, notifActive;
 
+    Animation animation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
 
-        Animation animation = new Animation(this);
+        animation = new Animation(this);
 
     }
 
@@ -133,4 +135,15 @@ public class MainActivity extends AppCompatActivity {
         return characterSurfaceView.getHolder();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        animation.pause();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        animation.restart();
+    }
 }

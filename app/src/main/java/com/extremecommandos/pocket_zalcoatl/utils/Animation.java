@@ -30,27 +30,27 @@ public class Animation implements Runnable {
         bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.chibi_quetzal);
         drawSurface = new DrawSurface(activity.getApplicationContext(), activity.getCharacterSurfaceHolder());
 
-        ssl = new SpriteSheetLoader(120, 120, 4, 4, bmp);
+        ssl = new SpriteSheetLoader(250, 250, 3, 3, bmp);
         spriteSheet = ssl.getSpriteSheet();
 
         resume();
     }
 
     public void update() {
-        if(++index > spriteSheet.length) index = 0;
+        if(++index > spriteSheet.length-1) index = 0;
         drawSurface.updateImage(spriteSheet[index]);
     }
 
     @Override
     public void run() {
-        drawSurface.updateImage(spriteSheet[1]);
-        drawSurface.run();
+        drawSurface.resume();
         while(animationRunning) {
             update();
         }
     }
 
     public void pause() {
+        drawSurface.pause();
         animationRunning = false;
         while (true) {
             try {
@@ -69,5 +69,9 @@ public class Animation implements Runnable {
         animation.start();
     }
 
+    public void restart() {
+        drawSurface.resume();
+        resume();
+    }
 
 }
