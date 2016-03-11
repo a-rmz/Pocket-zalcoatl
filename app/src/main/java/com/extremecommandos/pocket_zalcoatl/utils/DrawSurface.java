@@ -3,6 +3,7 @@ package com.extremecommandos.pocket_zalcoatl.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 

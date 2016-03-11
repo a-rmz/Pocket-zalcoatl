@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        animation.pause();
+        animation.stop();
     }
 
     @Override

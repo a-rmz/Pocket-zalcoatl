@@ -2,6 +2,7 @@ package com.extremecommandos.pocket_zalcoatl.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
@@ -61,6 +62,10 @@ public class Animation implements Runnable {
             break;
         }
         animation = null;
+    }
+
+    public void stop() {
+        pause();
     }
 
     public void resume() {
