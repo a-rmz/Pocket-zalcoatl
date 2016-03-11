@@ -14,36 +14,36 @@ public class Animation implements Runnable {
     Thread animation;
 
     MainActivity activity;
-    int spriteCount, index;
+    int index;
     DrawSurface drawSurface;
     boolean animationRunning;
 
     // Replace
-    Bitmap bmp[] = new Bitmap[3];
+    Bitmap bmp;
+    Bitmap [] spriteSheet;
+    SpriteSheetLoader ssl;
 
-    public Animation(MainActivity activity, int spriteCount) {
+    public Animation(MainActivity activity) {
         this.activity = activity;
-        this.spriteCount = spriteCount;
         index = 0;
 
-        bmp[0] = BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_games_white_36dp);
-        bmp[1] = BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_favorite_white_36dp);
-        bmp[2] = BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_hotel_white_36dp);
+        bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.chibi_quetzal);
         drawSurface = new DrawSurface(activity.getApplicationContext(), activity.getCharacterSurfaceHolder());
+
+        ssl = new SpriteSheetLoader(120, 120, 4, 4, bmp);
+        spriteSheet = ssl.getSpriteSheet();
 
         resume();
     }
 
     public void update() {
-        if(index == 0) index = 1;
-        else if(index == 1) index = 2;
-        else if(index == 2) index = 0;
-        drawSurface.updateImage(bmp[index]);
+        if(++index > spriteSheet.length) index = 0;
+        drawSurface.updateImage(spriteSheet[index]);
     }
 
     @Override
     public void run() {
-        drawSurface.updateImage(bmp[1]);
+        drawSurface.updateImage(spriteSheet[1]);
         drawSurface.run();
         while(animationRunning) {
             update();

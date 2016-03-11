@@ -1,6 +1,7 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 import android.app.Dialog;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
 
-        Animation animation = new Animation(this, 0);
+        Animation animation = new Animation(this);
 
     }
 
@@ -131,4 +132,5 @@ public class MainActivity extends AppCompatActivity {
     public SurfaceHolder getCharacterSurfaceHolder() {
         return characterSurfaceView.getHolder();
     }
+
 }
