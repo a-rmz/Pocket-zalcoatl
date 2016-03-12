@@ -40,13 +40,35 @@ public class Animation implements Runnable {
     public void update() {
         if(++index > spriteSheet.length-1) index = 0;
         drawSurface.updateImage(spriteSheet[index]);
+
     }
 
     @Override
     public void run() {
         drawSurface.resume();
-        while(animationRunning) {
+        int LoopTime = 1000 / 60; // 60 FPS
+        long start, elapsed, wait;
+
+        // Initializes what is needed for the Game.
+
+        start= System.nanoTime();
+        elapsed = System.nanoTime() - start;
+        wait = LoopTime - elapsed / 1000000;
+
+        if(wait < 0) wait = 5;
+
+        while(animationRunning){
+
             update();
+
+            if(wait < 0) wait = 5;
+
+            try{
+                animation.sleep(wait);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
