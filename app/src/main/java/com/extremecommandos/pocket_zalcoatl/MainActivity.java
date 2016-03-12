@@ -1,13 +1,7 @@
 package com.extremecommandos.pocket_zalcoatl;
 
-import android.app.Dialog;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.SurfaceHolder;
@@ -15,9 +9,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
-import com.akexorcist.roundcornerprogressbar.*;
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
-import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
 /**
  * Created by alex on 3/7/16.
@@ -111,12 +104,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     boolean getSoundState() {
         return soundActive;
     }
+
     void setSoundOn() {
         soundActive = true;
     }
+
     void setSoundOff() {
         soundActive = false;
     }
@@ -124,9 +120,11 @@ public class MainActivity extends AppCompatActivity {
     boolean getNotifState() {
         return notifActive;
     }
+
     void setNotifOn() {
         notifActive = true;
     }
+
     void setNotifOff() {
         notifActive = false;
     }
@@ -136,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         animation.stop();
     }
 

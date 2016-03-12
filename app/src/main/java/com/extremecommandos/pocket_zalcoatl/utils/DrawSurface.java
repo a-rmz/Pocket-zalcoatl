@@ -15,6 +15,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
     Thread draw;
     SurfaceHolder holder;
     Bitmap bmp;
+    Bitmap blank = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
     Canvas canvas;
     boolean isRunning = false;
 
