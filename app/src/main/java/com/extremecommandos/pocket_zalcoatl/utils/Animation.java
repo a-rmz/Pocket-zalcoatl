@@ -3,6 +3,7 @@ package com.extremecommandos.pocket_zalcoatl.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.view.SurfaceHolder;
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
@@ -24,17 +25,15 @@ public class Animation implements Runnable {
     Bitmap [] spriteSheet;
     SpriteSheetLoader ssl;
 
-    public Animation(MainActivity activity) {
+    public Animation(MainActivity activity, SurfaceHolder surfaceHolder) {
         this.activity = activity;
         index = 0;
 
         bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.chibi_quetzal);
-        drawSurface = new DrawSurface(activity.getApplicationContext(), activity.getCharacterSurfaceHolder());
+        drawSurface = new DrawSurface(activity.getApplicationContext(), surfaceHolder);
 
         ssl = new SpriteSheetLoader(250, 250, 3, 3, bmp);
         spriteSheet = ssl.getSpriteSheet();
-
-        resume();
     }
 
     public void update() {

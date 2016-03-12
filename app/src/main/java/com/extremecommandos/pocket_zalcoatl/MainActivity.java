@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 
 /**
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     OptionsMenu optionsDialog;
     SurfaceView characterSurfaceView;
     private boolean soundActive, notifActive;
+
+    PocketGod pocketGod;
 
     Animation animation;
 
@@ -50,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setActionButtonListeners();
         setSupportActionBar(actionMenu);
 
-        animation = new Animation(this);
-
+        pocketGod = new PocketGod(this);
+        pocketGod.createGod();
     }
 
     protected void init() {
@@ -136,12 +139,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        animation.stop();
+        pocketGod.pause();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        animation.restart();
+        pocketGod.restart();
     }
 }
