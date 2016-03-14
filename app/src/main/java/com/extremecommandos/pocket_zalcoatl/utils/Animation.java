@@ -21,18 +21,16 @@ public class Animation implements Runnable {
     boolean animationRunning;
 
     // Replace
-    Bitmap bmp;
     Bitmap [] spriteSheet;
     SpriteSheetLoader ssl;
 
-    public Animation(MainActivity activity, SurfaceHolder surfaceHolder) {
+    public Animation(MainActivity activity, SurfaceHolder surfaceHolder, Bitmap bmp) {
         this.activity = activity;
         index = 0;
 
-        bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.chibi_quetzal);
         drawSurface = new DrawSurface(activity.getApplicationContext(), surfaceHolder);
 
-        ssl = new SpriteSheetLoader(250, 250, 3, 3, bmp);
+        ssl = new SpriteSheetLoader(293, 245, 4, 1, bmp);
         spriteSheet = ssl.getSpriteSheet();
     }
 
@@ -45,7 +43,7 @@ public class Animation implements Runnable {
     @Override
     public void run() {
         drawSurface.resume();
-        int LoopTime = 1000 / 60; // 60 FPS
+        int LoopTime = 1000 / 10; // 60 FPS
         long start, elapsed, wait;
 
         // Initializes what is needed for the Game.

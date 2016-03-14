@@ -1,6 +1,10 @@
 package com.extremecommandos.pocket_zalcoatl.characters;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
+import com.extremecommandos.pocket_zalcoatl.R;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 
 /**
@@ -12,10 +16,14 @@ public class PocketGod {
     MainActivity mainActivity;
     Animation characterAnimation;
 
+    Bitmap spriteSheet;
+
 
     public PocketGod(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        characterAnimation = new Animation(mainActivity, mainActivity.getCharacterSurfaceHolder());
+        spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet_small);
+        characterAnimation = new Animation(mainActivity, mainActivity.getCharacterSurfaceHolder(), spriteSheet);
+
     }
 
     public void createGod() {

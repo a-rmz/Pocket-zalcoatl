@@ -3,6 +3,8 @@ package com.extremecommandos.pocket_zalcoatl.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -15,7 +17,6 @@ public class DrawSurface extends SurfaceView implements Runnable{
     Thread draw;
     SurfaceHolder holder;
     Bitmap bmp;
-    Bitmap blank = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
     Canvas canvas;
     boolean isRunning = false;
 
@@ -40,6 +41,9 @@ public class DrawSurface extends SurfaceView implements Runnable{
                 continue;
             }
             canvas = holder.lockCanvas();
+            // Cleans the frame
+            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+            // Draws the bmp
             canvas.drawBitmap(getBmp(), 0, 0, null);
             holder.unlockCanvasAndPost(canvas);
         }
