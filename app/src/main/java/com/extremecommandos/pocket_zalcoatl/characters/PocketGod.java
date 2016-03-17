@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
+import com.extremecommandos.pocket_zalcoatl.utils.SpriteSheetLoader;
 
 /**
  * Created by alex on 3/10/16.
@@ -21,8 +22,9 @@ public class PocketGod {
 
     public PocketGod(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet_small);
-        characterAnimation = new Animation(mainActivity, mainActivity.getCharacterSurfaceHolder(), spriteSheet);
+        spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet_small_right);
+        SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 1 /*row*/, spriteSheet);
+        characterAnimation = new Animation(mainActivity, mainActivity.getCharacterSurfaceHolder(), ssl.getSpriteSheet(), 10);
 
     }
 

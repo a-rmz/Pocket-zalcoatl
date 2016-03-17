@@ -1,11 +1,15 @@
 package com.extremecommandos.pocket_zalcoatl.utils;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
-import android.util.Log;
+import android.graphics.PorterDuffXfermode;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -37,15 +41,16 @@ public class DrawSurface extends SurfaceView implements Runnable{
     public void run() {
         while(isRunning) {
             // Canvas draw
-            if(!holder.getSurface().isValid()) {
-                continue;
+            if(holder.getSurface().isValid()) {
+                canvas = holder.lockCanvas();
+                // Cleans the frame
+                canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                // tmp background
+                canvas.drawColor(Color.argb(0, 0, 0, 0));
+                // Draws the bmp
+                canvas.drawBitmap(getBmp(), 0, 0, null);
+                holder.unlockCanvasAndPost(canvas);
             }
-            canvas = holder.lockCanvas();
-            // Cleans the frame
-            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-            // Draws the bmp
-            canvas.drawBitmap(getBmp(), 0, 0, null);
-            holder.unlockCanvasAndPost(canvas);
         }
     }
 

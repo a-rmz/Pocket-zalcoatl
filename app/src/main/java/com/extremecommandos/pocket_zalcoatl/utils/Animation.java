@@ -16,26 +16,24 @@ public class Animation implements Runnable {
     Thread animation;
 
     MainActivity activity;
-    int index;
+    int index, animationSpeed;
     DrawSurface drawSurface;
     boolean animationRunning;
 
-    // Replace
     Bitmap [] spriteSheet;
-    SpriteSheetLoader ssl;
 
-    public Animation(MainActivity activity, SurfaceHolder surfaceHolder, Bitmap bmp) {
+    public Animation(MainActivity activity, SurfaceHolder surfaceHolder, Bitmap [] bmp, int animationSpeed) {
         this.activity = activity;
+        this.animationSpeed = animationSpeed;
+        spriteSheet = bmp;
         index = 0;
 
         drawSurface = new DrawSurface(activity.getApplicationContext(), surfaceHolder);
 
-        ssl = new SpriteSheetLoader(293, 245, 4, 1, bmp);
-        spriteSheet = ssl.getSpriteSheet();
     }
 
     public void update() {
-        if(++index > spriteSheet.length-1) index = 0;
+        if(++index > spriteSheet.length - 1) index = 0;
         drawSurface.updateImage(spriteSheet[index]);
 
     }
@@ -43,7 +41,7 @@ public class Animation implements Runnable {
     @Override
     public void run() {
         drawSurface.resume();
-        int LoopTime = 1000 / 10; // 60 FPS
+        int LoopTime = 1000 / animationSpeed; // 60 FPS
         long start, elapsed, wait;
 
         // Initializes what is needed for the Game.
