@@ -20,22 +20,16 @@ public class DrawSurface extends SurfaceView implements Runnable{
 
     Thread draw;
     SurfaceHolder holder;
-    Bitmap bmp;
+    Animation [] animations;
     Canvas canvas;
     boolean isRunning = false;
 
-    public DrawSurface(Context context, SurfaceHolder surfaceHolder) {
+    public DrawSurface(Context context, Animation [] animations) {
         super(context);
-        holder = surfaceHolder;
+        holder = getHolder();
+        this.animations = animations;
     }
 
-    protected void updateImage(Bitmap bmp) {
-        this.bmp = bmp;
-    }
-
-    protected Bitmap getBmp() {
-        return bmp;
-    }
 
     @Override
     public void run() {
@@ -45,10 +39,10 @@ public class DrawSurface extends SurfaceView implements Runnable{
                 canvas = holder.lockCanvas();
                 // Cleans the frame
                 canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-                // tmp background
-                canvas.drawColor(Color.argb(0, 0, 0, 0));
-                // Draws the bmp
-                canvas.drawBitmap(getBmp(), 0, 0, null);
+                // Draws the animations
+                for(Animation a : animations) {
+                    canvas.drawBitmap(a.getCurrentImage(), 0, 0, null);
+                }
                 holder.unlockCanvasAndPost(canvas);
             }
         }

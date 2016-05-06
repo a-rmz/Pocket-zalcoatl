@@ -20,11 +20,7 @@
             android:layout_height="@dimen/activity_button_height"
             style="?attr/borderlessButtonStyle"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            android:background="@color/colorPrimaryDark"
-            android:drawableTop="@drawable/ic_favorite_white_36dp"
-            android:textColor="@android:color/white"
-            android:text="Feed"
+            android:background="@drawable/feed"
             />
 
 
@@ -35,11 +31,8 @@
             android:layout_height="@dimen/activity_button_height"
             style="?attr/borderlessButtonStyle"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            android:background="@color/colorPrimary"
-            android:drawableTop="@drawable/ic_hotel_white_36dp"
-            android:textColor="@android:color/white"
-            android:text="Rest"/>
+            android:background="@drawable/sleep"
+            />
 
 
         <Button
@@ -49,11 +42,8 @@
             android:layout_height="@dimen/activity_button_height"
             style="?attr/borderlessButtonStyle"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            android:background="@color/colorPrimaryDark"
-            android:drawableTop="@drawable/ic_games_white_36dp"
-            android:textColor="@android:color/white"
-            android:text="Games"/>
+            android:background="@drawable/play"
+            />
 
 
         <Button
@@ -63,11 +53,8 @@
             android:layout_height="@dimen/activity_button_height"
             style="?attr/borderlessButtonStyle"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            android:background="@color/colorPrimary"
-            android:drawableTop="@drawable/ic_info_white_36dp"
-            android:textColor="@android:color/white"
-            android:text="Info"/>
+            android:background="@drawable/info"
+            />
 
     </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialog;
 import android.view.View;
@@ -10,14 +11,14 @@ import android.widget.Button;
  */
 public class OptionsMenu extends AppCompatDialog {
 
+    Game game;
     MainActivity activity;
     Button soundOn, soundOff;
     Button notifOn, notifOff;
 
-    public OptionsMenu(MainActivity activity) {
+    public OptionsMenu(MainActivity activity, Game game) {
         super(activity);
-        this.activity = activity;
-
+        this.game = game;
     }
 
     @Override
@@ -37,10 +38,10 @@ public class OptionsMenu extends AppCompatDialog {
         soundOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!activity.getSoundState()) {
+                if(!game.getSoundState()) {
                     soundOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     soundOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    activity.setSoundOn();
+                    game.setSoundOn();
                 }
             }
         });
@@ -48,10 +49,10 @@ public class OptionsMenu extends AppCompatDialog {
         soundOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(activity.getSoundState()) {
+                if(game.getSoundState()) {
                     soundOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     soundOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    activity.setSoundOff();
+                    game.setSoundOff();
                 }
             }
         });
@@ -59,10 +60,10 @@ public class OptionsMenu extends AppCompatDialog {
         notifOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!activity.getNotifState()) {
+                if(!game.getNotifState()) {
                     notifOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     notifOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    activity.setNotifOn();
+                    game.setNotifOn();
                 }
             }
         });
@@ -70,10 +71,10 @@ public class OptionsMenu extends AppCompatDialog {
         notifOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(activity.getNotifState()) {
+                if(game.getNotifState()) {
                     notifOff.setBackgroundColor(activity.getResources().getColor((R.color.switch_pressed)));
                     notifOn.setBackgroundColor(activity.getResources().getColor((R.color.switch_released)));
-                    activity.setNotifOff();
+                    game.setNotifOff();
                 }
             }
         });

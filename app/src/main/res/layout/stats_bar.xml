@@ -17,7 +17,7 @@
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
             android:layout_marginRight="@dimen/stat_bar_icon_margin"
-            android:src="@drawable/ic_favorite_white_36dp"/>
+            android:src="@drawable/feed"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
             android:id="@+id/life_bar"
@@ -42,7 +42,7 @@
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
             android:layout_marginRight="@dimen/stat_bar_icon_margin"
-            android:src="@drawable/ic_hotel_white_36dp"/>
+            android:src="@drawable/sleep"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
             android:id="@+id/rest_bar"
@@ -67,7 +67,7 @@
             android:layout_width="@dimen/stat_bar_icon"
             android:layout_height="@dimen/stat_bar_icon"
             android:layout_marginRight="@dimen/stat_bar_icon_margin"
-            android:src="@drawable/ic_games_white_36dp"/>
+            android:src="@drawable/play"/>
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
             android:id="@+id/fun_bar"

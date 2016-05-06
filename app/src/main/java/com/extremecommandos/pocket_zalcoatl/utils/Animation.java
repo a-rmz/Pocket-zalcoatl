@@ -17,30 +17,28 @@ public class Animation implements Runnable {
 
     MainActivity activity;
     int index, animationSpeed;
-    DrawSurface drawSurface;
     boolean animationRunning;
 
     Bitmap [] spriteSheet;
 
-    public Animation(MainActivity activity, SurfaceHolder surfaceHolder, Bitmap [] bmp, int animationSpeed) {
+    public Animation(MainActivity activity, Bitmap [] bmp, int animationSpeed) {
         this.activity = activity;
         this.animationSpeed = animationSpeed;
         spriteSheet = bmp;
         index = 0;
-
-        drawSurface = new DrawSurface(activity.getApplicationContext(), surfaceHolder);
-
     }
 
     public void update() {
-        if(++index > spriteSheet.length - 1) index = 0;
-        drawSurface.updateImage(spriteSheet[index]);
-
+        index = (++index) % spriteSheet.length;
     }
 
+    public Bitmap getCurrentImage() {
+        return spriteSheet[index];
+    }
+
+    // Animation loop
     @Override
     public void run() {
-        drawSurface.resume();
         int LoopTime = 1000 / animationSpeed; // 60 FPS
         long start, elapsed, wait;
 
@@ -68,7 +66,6 @@ public class Animation implements Runnable {
     }
 
     public void pause() {
-        drawSurface.pause();
         animationRunning = false;
         while (true) {
             try {
@@ -92,7 +89,6 @@ public class Animation implements Runnable {
     }
 
     public void restart() {
-        drawSurface.resume();
         resume();
     }
 
