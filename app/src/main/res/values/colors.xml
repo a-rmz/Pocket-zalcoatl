@@ -8,4 +8,6 @@
 
     <color name="switch_released">#FFC800</color>
     <color name="switch_pressed">#F29200</color>
+
+    <color name="splash2_bg">#333333</color>
 </resources>

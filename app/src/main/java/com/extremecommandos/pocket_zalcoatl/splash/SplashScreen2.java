@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
@@ -21,6 +22,8 @@ public class SplashScreen2 extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.splash);
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.splash2));
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.splash_screen);
+        layout.setBackgroundColor(getResources().getColor(R.color.splash2_bg));
 
 
         new Handler().postDelayed(new Runnable() {
