@@ -15,14 +15,12 @@ public class Animation implements Runnable {
 
     Thread animation;
 
-    MainActivity activity;
     int index, animationSpeed;
     boolean animationRunning;
 
     Bitmap [] spriteSheet;
 
-    public Animation(MainActivity activity, Bitmap [] bmp, int animationSpeed) {
-        this.activity = activity;
+    public Animation(Bitmap [] bmp, int animationSpeed) {
         this.animationSpeed = animationSpeed;
         spriteSheet = bmp;
         index = 0;
@@ -41,8 +39,6 @@ public class Animation implements Runnable {
     public void run() {
         int LoopTime = 1000 / animationSpeed; // 60 FPS
         long start, elapsed, wait;
-
-        // Initializes what is needed for the Game.
 
         start= System.nanoTime();
         elapsed = System.nanoTime() - start;

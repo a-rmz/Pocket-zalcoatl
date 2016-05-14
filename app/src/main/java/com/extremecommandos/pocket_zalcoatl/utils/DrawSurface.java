@@ -25,23 +25,30 @@ public class DrawSurface extends SurfaceView implements Runnable{
     boolean isRunning = false;
 
     public DrawSurface(Context context, Animation [] animations) {
-        super(context);
+        this(context);
         holder = getHolder();
         this.animations = animations;
+    }
+
+    public DrawSurface(Context context) {
+        super(context);
     }
 
 
     @Override
     public void run() {
+        for(Animation a : animations) {
+            a.restart();
+        }
         while(isRunning) {
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            p.setColor(Color.TRANSPARENT);
             // Canvas draw
             if(holder.getSurface().isValid()) {
                 canvas = holder.lockCanvas();
-                // Cleans the frame
-                canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                 // Draws the animations
                 for(Animation a : animations) {
-                    canvas.drawBitmap(a.getCurrentImage(), 0, 0, null);
+                    canvas.drawBitmap(a.getCurrentImage(), 0, 0, p);
                 }
                 holder.unlockCanvasAndPost(canvas);
             }

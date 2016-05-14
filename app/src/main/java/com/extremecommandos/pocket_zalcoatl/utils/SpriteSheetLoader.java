@@ -29,7 +29,7 @@ public class SpriteSheetLoader {
 //                spriteSheet[(i * columns) + j] = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
 
                 spriteSheet[(i * columns) + j] = Bitmap.createBitmap(source, (j * this.width), (i * this.height), this.width, this.height);
-//                spriteSheet[(i * columns) + j].setHasAlpha(true);
+                spriteSheet[(i * columns) + j].setHasAlpha(true);
 //                spriteSheet[(i * columns) + j] = Bitmap.createScaledBitmap(spriteSheet[(i * columns) + j], this.width, this.height, true);
 
             }

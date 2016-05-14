@@ -16,7 +16,7 @@ public class Background {
     public Background(MainActivity activity) {
         Bitmap spriteSheet = BitmapFactory.decodeResource(activity.getResources(), R.drawable.main_bg);
         SpriteSheetLoader ssl = new SpriteSheetLoader(1 /*columns*/, 1 /*row*/, spriteSheet);
-        backgroundAnimation = new Animation(activity, ssl.getSpriteSheet(), 1);
+        backgroundAnimation = new Animation(ssl.getSpriteSheet(), 1);
     }
 
     public Animation getAnimation() {

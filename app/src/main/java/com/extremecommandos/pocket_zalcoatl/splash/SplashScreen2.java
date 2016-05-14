@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -22,7 +23,7 @@ public class SplashScreen2 extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.splash);
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.splash2));
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.splash_screen);
+        FrameLayout layout = (FrameLayout) findViewById(R.id.splash_screen);
         layout.setBackgroundColor(getResources().getColor(R.color.splash2_bg));
 
 

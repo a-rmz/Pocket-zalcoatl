@@ -10,4 +10,6 @@
     <color name="switch_pressed">#F29200</color>
 
     <color name="splash2_bg">#333333</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

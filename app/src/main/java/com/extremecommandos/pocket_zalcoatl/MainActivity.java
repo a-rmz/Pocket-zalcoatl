@@ -32,8 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        game.onResume();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
+        game.onPause();
     }
 
     @Override

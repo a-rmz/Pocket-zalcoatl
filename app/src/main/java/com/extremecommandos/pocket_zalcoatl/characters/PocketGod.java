@@ -13,6 +13,8 @@ import com.extremecommandos.pocket_zalcoatl.utils.SpriteSheetLoader;
  */
 public class PocketGod {
 
+    private int STRLEN = 20;
+
     private String name;
     MainActivity mainActivity;
     Animation characterAnimation;
@@ -24,7 +26,7 @@ public class PocketGod {
         this.mainActivity = mainActivity;
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet_small_right);
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 1 /*row*/, spriteSheet);
-        characterAnimation = new Animation(mainActivity, ssl.getSpriteSheet(), 10);
+        characterAnimation = new Animation(ssl.getSpriteSheet(), 10);
     }
 
     public void createGod() {
@@ -45,5 +47,17 @@ public class PocketGod {
 
     public Animation getAnimation() {
         return this.characterAnimation;
+    }
+
+    public void setName(String name) {
+        if(name.length() > STRLEN) {
+            this.name = name.substring(0, STRLEN);
+        } else {
+            this.name = name;
+        }
+    }
+
+    public String getName() {
+        return name;
     }
 }

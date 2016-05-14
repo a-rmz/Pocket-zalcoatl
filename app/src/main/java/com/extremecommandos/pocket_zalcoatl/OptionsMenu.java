@@ -19,6 +19,7 @@ public class OptionsMenu extends AppCompatDialog {
     public OptionsMenu(MainActivity activity, Game game) {
         super(activity);
         this.game = game;
+        this.activity = activity;
     }
 
     @Override

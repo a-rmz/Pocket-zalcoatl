@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".splash.SplashScreen"
+        <activity
+            android:name=".splash.SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,16 +18,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".splash.SplashScreen2"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
+        <activity
+            android:name=".splash.SplashScreen2"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppMain"
-            android:label="">
-
+        <activity
+            android:name=".MainActivity"
+            android:label=""
+            android:theme="@style/AppMain">
         </activity>
+
     </application>
 
 </manifest>

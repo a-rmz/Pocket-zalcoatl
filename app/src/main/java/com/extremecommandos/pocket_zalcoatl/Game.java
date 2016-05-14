@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -23,7 +24,8 @@ public class Game {
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
     OptionsMenu optionsDialog;
-    SurfaceView characterSurfaceView;
+    ViewStub characterSurfaceView;
+    DrawSurface drawSurface;
     private boolean soundActive, notifActive;
 
     PocketGod pocketGod;
@@ -111,12 +113,13 @@ public class Game {
 
     private void replaceSurface() {
         int index;
-        characterSurfaceView = (SurfaceView) activity.findViewById(R.id.main_surfaceView);
+        characterSurfaceView = (ViewStub) activity.findViewById(R.id.main_surfaceView);
         ViewGroup vg = (ViewGroup) characterSurfaceView.getParent();
         index = vg.indexOfChild(characterSurfaceView);
         if(vg != null) vg.removeView(characterSurfaceView);
-        characterSurfaceView = new DrawSurface(activity, new Animation[] {background.getAnimation(), pocketGod.getAnimation()});
-        vg.addView(characterSurfaceView, index);
+        drawSurface = new DrawSurface(activity.getApplicationContext(), new Animation[] {background.getAnimation(), pocketGod.getAnimation()});
+        vg.addView(drawSurface, index);
+
     }
 
     boolean getSoundState() {
@@ -143,4 +146,12 @@ public class Game {
         notifActive = false;
     }
 
+    void onResume() {
+        drawSurface.resume();
+    }
+
+    void onPause() {
+        drawSurface.pause();
+        pocketGod.pause();
+    }
 }
