@@ -19,22 +19,23 @@ import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
  * Created by alex on 3/7/16.
  */
 public class MainActivity extends AppCompatActivity {
-
+    //int score =0;
     Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         game = new Game(this);
+        //score= 1;
     }
 
 
     @Override
     protected void onResume() {
+        //this.score = getIntent().getParcelableExtra("Score");
         super.onResume();
-        game.onResume();
+       game.onResume();
     }
 
     @Override

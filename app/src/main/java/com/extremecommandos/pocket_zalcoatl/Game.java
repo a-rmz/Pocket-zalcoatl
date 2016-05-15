@@ -1,23 +1,29 @@
 package com.extremecommandos.pocket_zalcoatl;
 
-import android.app.Activity;
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.SurfaceView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.extremecommandos.pocket_zalcoatl.SnakeGame.DrawingActivitySnake;
 import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
+import static android.support.v4.app.ActivityCompat.startActivity;
+
 /**
  * Created by alex on 5/6/16.
  */
-public class Game {
+public class Game{
 
     Toolbar actionMenu;
     Button feed, rest, games, info;
@@ -27,6 +33,7 @@ public class Game {
     ViewStub characterSurfaceView;
     DrawSurface drawSurface;
     private boolean soundActive, notifActive;
+    private int score =0;
 
     PocketGod pocketGod;
     Background background;
@@ -35,6 +42,8 @@ public class Game {
     public Game(MainActivity activity) {
 
         this.activity = activity;
+
+
         setSoundOn();
         setNotifOn();
 
@@ -98,6 +107,9 @@ public class Game {
             @Override
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
+                Intent intent = new Intent(activity.getApplicationContext(),DrawingActivitySnake.class);
+                startActivity(activity, intent, Bundle.EMPTY);
+
             }
         });
 
@@ -146,12 +158,14 @@ public class Game {
         notifActive = false;
     }
 
-    void onResume() {
+
+    protected void onResume() {
         drawSurface.resume();
     }
 
-    void onPause() {
+    protected void onPause() {
         drawSurface.pause();
         pocketGod.pause();
     }
+
 }
