@@ -26,7 +26,7 @@ public class PocketGod {
         this.mainActivity = mainActivity;
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet_small_right);
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 1 /*row*/, spriteSheet);
-        characterAnimation = new Animation(ssl.getSpriteSheet(), 10);
+        characterAnimation = new Animation(ssl.getSpriteSheet(), 5);
     }
 
     public void createGod() {

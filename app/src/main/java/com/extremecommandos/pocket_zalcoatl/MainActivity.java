@@ -1,5 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -47,5 +48,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case Game.SNAKE:
+                game.drawSurface.resumeAnimations();
+                break;
+        }
     }
 }

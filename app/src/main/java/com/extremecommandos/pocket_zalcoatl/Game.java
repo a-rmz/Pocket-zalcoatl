@@ -19,11 +19,15 @@ import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
 import static android.support.v4.app.ActivityCompat.startActivity;
+import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
  * Created by alex on 5/6/16.
  */
 public class Game{
+
+    public static final int SNAKE = 1;
+    public static final int FLAPPY = 1;
 
     Toolbar actionMenu;
     Button feed, rest, games, info;
@@ -107,8 +111,9 @@ public class Game{
             @Override
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
+                drawSurface.pauseAnimations();
                 Intent intent = new Intent(activity.getApplicationContext(),DrawingActivitySnake.class);
-                startActivity(activity, intent, Bundle.EMPTY);
+                startActivityForResult(activity, intent, SNAKE, Bundle.EMPTY);
 
             }
         });

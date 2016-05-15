@@ -42,7 +42,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
         }
         while(isRunning) {
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setColor(Color.TRANSPARENT);
+            p.setColor(Color.BLACK);
             // Canvas draw
             if(holder.getSurface().isValid()) {
                 canvas = holder.lockCanvas();
@@ -72,6 +72,26 @@ public class DrawSurface extends SurfaceView implements Runnable{
         isRunning = true;
         draw = new Thread(this);
         draw.start();
+    }
+
+    public void pauseAnimations() {
+        try {
+            for(Animation a : animations) {
+                a.wait();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resumeAnimations() {
+        try {
+            for(Animation a : animations) {
+                a.notify();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
