@@ -11,6 +11,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
@@ -28,7 +30,7 @@ public class GameLoopSnake  implements Runnable {
 
     private final SurfaceHolder surfaceHolder;
     private long start, elapsed, wait;
-    private int FPS = 60;
+    private int FPS = 10;
     private long  LoopTime = 1000 / FPS;
 
     protected boolean running = true;
@@ -49,6 +51,7 @@ public class GameLoopSnake  implements Runnable {
     private Bitmap bitmapFood;
 
     private int score;
+    public Score scoreParcel;
     private int snakeLarge=0;
     private int changeVel;
     private int changeOrientation;
@@ -84,6 +87,7 @@ public class GameLoopSnake  implements Runnable {
         fontSize = viewWidth / 15;
         paint.setColor(Color.WHITE);
         paint.setTextSize(fontSize);
+        scoreParcel = new Score();
 
 
         background = BitmapFactory.decodeResource(resources, R.mipmap.background);
@@ -420,9 +424,9 @@ public class GameLoopSnake  implements Runnable {
 
     // Here we return the score to main activity
     public void returnToMainActivity(){
-
+        scoreParcel.setData(score);
         Intent intent = new Intent(context,MainActivity.class);
-        intent.putExtra("Score", score);
+        intent.putExtra("Score", scoreParcel );
         startActivity(drawingActivitySnake, intent, Bundle.EMPTY);
     }
 }

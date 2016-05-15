@@ -1,6 +1,8 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -26,6 +28,8 @@ import static android.support.v4.app.ActivityCompat.startActivityForResult;
  */
 public class Game{
 
+    private int Hearts;
+
     public static final int SNAKE = 1;
     public static final int FLAPPY = 1;
 
@@ -44,7 +48,7 @@ public class Game{
     MainActivity activity;
 
     public Game(MainActivity activity) {
-
+        Hearts =0;
         this.activity = activity;
 
 
@@ -171,6 +175,25 @@ public class Game{
     protected void onPause() {
         drawSurface.pause();
         pocketGod.pause();
+    }
+
+    public  void addHearts(int hearts){
+        this.Hearts = Hearts + hearts;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+        builder.setMessage("Game Over, You got " + hearts + " Hearts").
+        setNeutralButton(
+                "OK",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }
+
+        );
+       builder.create().show();
+
     }
 
 }
