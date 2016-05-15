@@ -1,5 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl.SnakeGame;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,10 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 
+import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
+
+import static android.support.v4.app.ActivityCompat.startActivity;
 
 public class DrawingActivitySnake extends AppCompatActivity {
     RelativeLayout drawRelativeLayout;
@@ -40,6 +44,13 @@ public class DrawingActivitySnake extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             );
         }
+    }
+
+    public void returnToMainActivity(int score) {
+        Intent intent = new Intent(DrawingActivitySnake.this, MainActivity.class);
+        intent.putExtra("Score", score);
+        setResult(0, intent);
+        finish();
     }
 
 }

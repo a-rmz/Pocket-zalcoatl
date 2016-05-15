@@ -116,7 +116,7 @@ public class Game{
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(),DrawingActivitySnake.class);
+                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
                 startActivityForResult(activity, intent, SNAKE, Bundle.EMPTY);
 
             }
@@ -180,19 +180,20 @@ public class Game{
     public  void addHearts(int hearts){
         this.Hearts = Hearts + hearts;
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
-        builder.setMessage("Game Over, You got " + hearts + " Hearts").
-        setNeutralButton(
-                "OK",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                }
-
-        );
-       builder.create().show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+//        builder.setMessage("Game Over, You got " + hearts + " Hearts").
+//        setNeutralButton(
+//                "OK",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                }
+//
+//        );
+//       builder.create().show();
+        System.out.println("You've got " + hearts + " hearths");
 
     }
 
