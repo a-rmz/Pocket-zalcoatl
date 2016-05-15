@@ -1,6 +1,8 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -177,6 +179,21 @@ public class Game{
 
     public  void addHearts(int hearts){
         this.Hearts = Hearts + hearts;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+        builder.setMessage("Game Over, You got " + hearts + " Hearts").
+        setNeutralButton(
+                "OK",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }
+
+        );
+       builder.create().show();
+
     }
 
 }
