@@ -18,7 +18,7 @@ public class PocketGod {
     private String name;
     MainActivity mainActivity;
     Animation characterAnimation;
-    private int life, fun, hunger, hearths;
+    private int sleep, fun, hunger, hearths;
 
     Bitmap spriteSheet;
 
@@ -28,10 +28,6 @@ public class PocketGod {
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet);
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 2 /*row*/, 4, 4,   spriteSheet);
         characterAnimation = new Animation(ssl.getSpriteSheet(), 3);
-        setLife(100);
-        setFun(100);
-        setHunger(100);
-        setHearths(0);
     }
 
     public void createGod() {
@@ -62,12 +58,12 @@ public class PocketGod {
         return name;
     }
 
-    public int getLife() {
-        return life;
+    public int getSleep() {
+        return sleep;
     }
 
-    public void setLife(int life) {
-        this.life = life;
+    public void setSleep(int sleep) {
+        this.sleep = (this.sleep > 100) ? 100 : sleep;
     }
 
     public int getFun() {
@@ -75,7 +71,7 @@ public class PocketGod {
     }
 
     public void setFun(int fun) {
-        this.fun = fun;
+        this.fun = (this.fun > 100) ? 100 : fun;
     }
 
     public int getHunger() {
@@ -83,7 +79,7 @@ public class PocketGod {
     }
 
     public void setHunger(int hunger) {
-        this.hunger = hunger;
+        this.hunger = (this.hunger > 100) ? 100 : hunger;
     }
 
     public int getHearths() {
