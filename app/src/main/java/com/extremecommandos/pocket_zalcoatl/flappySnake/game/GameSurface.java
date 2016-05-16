@@ -46,16 +46,13 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        if (game != null) {
-            game.stop();
-        }
-        game = null;
+        stop();
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         game.onTap(event);
-        return true;
+        return false;
     }
 
     public void onPause() {
@@ -70,9 +67,15 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
+    public void stop() {
+        if (game != null) {
+            game.stop();
+        }
+        game = null;
+    }
+
     public void returnToMainActivity(int score) {
         System.out.println("Return 2 main GameSurface");
-        game.stop();
         main.returnToMainActivity(score);
     }
 }

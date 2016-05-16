@@ -90,6 +90,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewHearths"
         android:textColor="@color/main_text"
+        
          />
 
 

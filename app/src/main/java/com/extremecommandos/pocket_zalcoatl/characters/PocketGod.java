@@ -2,6 +2,7 @@ package com.extremecommandos.pocket_zalcoatl.characters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class PocketGod {
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 2 /*row*/, 4, 4,   spriteSheet);
         characterAnimation = new Animation(ssl.getSpriteSheet(), 3);
         textView = (TextView) mainActivity.findViewById(R.id.textViewHearths);
-
+        textView.setTypeface(Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Tribeca.ttf"));
     }
 
     public void createGod() {

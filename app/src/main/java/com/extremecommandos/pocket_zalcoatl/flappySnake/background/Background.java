@@ -22,7 +22,7 @@ public class Background {
     public Background(Dimensions dimensions, Resources resources) {
         position = new Position();
         this.dimensions = dimensions;
-        bg = BitmapFactory.decodeResource(resources, R.drawable.background);
+        bg = BitmapFactory.decodeResource(resources, R.drawable.background_sky);
         position.setDimens(dimensions.getWidthPx(), dimensions.getHeightPx());
         rect = new Rect(0, 0, position.getWidth(), position.getHeight());
     }

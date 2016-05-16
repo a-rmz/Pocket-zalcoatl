@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.os.*;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -125,13 +126,15 @@ public class FeedService extends Service {
     @Override
     public void onDestroy(){
         running= false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(thread != null) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            super.onDestroy();
+            Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
         }
-        super.onDestroy();
-        Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
     }
 
     public int getCountFeed(){

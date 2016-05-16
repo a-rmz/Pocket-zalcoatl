@@ -79,7 +79,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
 
     public void resume() {
         isRunning = true;
-        draw = new Thread(this);
+        draw = new Thread(this, "Draw");
         draw.start();
     }
 
