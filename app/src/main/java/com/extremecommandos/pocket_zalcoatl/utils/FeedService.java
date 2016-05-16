@@ -24,8 +24,13 @@ public class FeedService extends Service {
 
     private Thread thread;
     private boolean running;
-    private long count =0;
-    Notification notification;
+    private long count1 =0;
+    private long count2 =0;
+    private long count3 =0;
+    private int countFeed=0;
+    private int countTired=0;
+    private int countBored=0;
+    Notification notification, notification2, notification3;
 
     public FeedService(){
 
@@ -53,6 +58,10 @@ public class FeedService extends Service {
 
         Intent intent1 = new Intent();
         final PendingIntent pIntent = PendingIntent.getActivity(this,0,intent1,0);
+        Intent intent2 = new Intent();
+        final PendingIntent pIntent2 = PendingIntent.getActivity(this,0,intent1,0);
+        Intent intent3 = new Intent();
+        final PendingIntent pIntent3 = PendingIntent.getActivity(this,0,intent1,0);
 
        thread = new Thread(){
             public void run(){
@@ -61,10 +70,12 @@ public class FeedService extends Service {
 
                 // paara saber si funciona
                  Log.i("WARNING", "Servicio Trabajando");
-                 count++;
+                 count1++;
+                 count2++;
+                 count3++;
 
 
-                 if(count==10){
+                 if(count1==10){
                    notification = new Notification.Builder(getApplicationContext())
                            .setContentTitle(getResources().getString(R.string.TitleHungry))
                            .setContentText(getResources().getString(R.string.TextHungry))
@@ -72,24 +83,30 @@ public class FeedService extends Service {
                             .setContentIntent(pIntent).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                      notificationManager.notify(0,notification);
+                     count1=0;
+                     countFeed++;
                  }
-                 if(count==15){
-                     notification = new Notification.Builder(getApplicationContext())
+                 if(count2==15){
+                     notification2 = new Notification.Builder(getApplicationContext())
                              .setContentTitle(getResources().getString(R.string.TitleBored))
                              .setContentText(getResources().getString(R.string.TextBored))
                              .setSmallIcon(R.drawable.feed)
-                             .setContentIntent(pIntent).getNotification();
+                             .setContentIntent(pIntent2).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                     notificationManager.notify(0,notification);
+                     notificationManager.notify(1,notification2);
+                     count2=0;
+                     countBored++;
                  }
-                 if(count==20){
-                     notification = new Notification.Builder(getApplicationContext())
+                 if(count3==20){
+                     notification3 = new Notification.Builder(getApplicationContext())
                              .setContentTitle(getResources().getString(R.string.TitleTired))
                              .setContentText(getResources().getString(R.string.TextTired))
                              .setSmallIcon(R.drawable.feed)
-                             .setContentIntent(pIntent).getNotification();
+                             .setContentIntent(pIntent3).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                     notificationManager.notify(0,notification);
+                     notificationManager.notify(2,notification3);
+                     count3 =0;
+                     countTired++;
                  }
 
                  try {
@@ -117,6 +134,22 @@ public class FeedService extends Service {
         Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
     }
 
+    public int getCountFeed(){
+        return countFeed;
+    }
 
+    public int getCountBored(){
+        return countBored;
+    }
+
+    public int getCountTired(){
+        return countTired;
+    }
+
+    public void setCountNewConuts(int newCount){
+        this.countFeed= newCount;
+        this.countTired= newCount;
+        this.countBored= newCount;
+    }
 
     }
