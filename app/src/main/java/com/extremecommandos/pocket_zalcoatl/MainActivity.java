@@ -1,6 +1,8 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -32,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         game = new Game(this);
 
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
+        game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
+        game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
+        game.pocketGod.setLife(shared.getInt(getString(R.string.life), 50));
+        long savedTime = shared.getLong(getString(R.string.date), 0);
+
+
         ///////////////////AQUI SE INICIA EL SERVICIO//////////////////
         //el servicio es FeedService en la carpeta Utils
         //startService(new Intent(getBaseContext(), FeedService.class));
@@ -51,6 +61,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         game.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences shared = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putInt(getString(R.string.hearths), game.getHearths());
+        editor.putInt(getString(R.string.fun), game.getFun());
+        editor.putInt(getString(R.string.hunger), game.getHunger());
+        editor.putInt(getString(R.string.life), game.getLife());
+        editor.putLong(getString(R.string.date), System.currentTimeMillis());
+        editor.apply();
     }
 
     @Override
