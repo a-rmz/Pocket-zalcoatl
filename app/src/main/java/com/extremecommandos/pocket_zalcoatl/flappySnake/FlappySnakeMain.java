@@ -76,5 +76,6 @@ public class FlappySnakeMain extends AppCompatActivity {
         setResult(0, intent);
         finish();
         System.out.println("returnToMain, finishing: " + isFinishing());
+        onStop();
     }
 }

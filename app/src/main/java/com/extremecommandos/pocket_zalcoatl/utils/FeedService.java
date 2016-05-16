@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.os.*;
 import android.support.annotation.Nullable;
 import android.util.Log;
