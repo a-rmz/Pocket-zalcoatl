@@ -117,7 +117,7 @@ public class Game{
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(),DrawingActivitySnake.class);
+                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
                 startActivityForResult(activity, intent, SNAKE, Bundle.EMPTY);
 
             }
@@ -183,6 +183,7 @@ public class Game{
         Log.i("ALERT", "llevas " + Hearts + " papu");
     }
 
+
     public void isHungry(){
         life.setProgress(life.getProgress() -1);
     }
@@ -190,6 +191,7 @@ public class Game{
     public void isBored(){
         fun.setProgress(fun.getProgress() -1);
     }
+
 
     public void isTired(){
         sleep.setProgress(sleep.getProgress() -1);

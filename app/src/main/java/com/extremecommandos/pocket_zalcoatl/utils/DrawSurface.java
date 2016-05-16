@@ -75,22 +75,26 @@ public class DrawSurface extends SurfaceView implements Runnable{
     }
 
     public void pauseAnimations() {
-        try {
-            for(Animation a : animations) {
-                a.wait();
+        synchronized (animations) {
+            try {
+                for(Animation a : animations) {
+                    a.wait();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     public void resumeAnimations() {
-        try {
-            for(Animation a : animations) {
-                a.notify();
+        synchronized (animations) {
+            try {
+                for(Animation a : animations) {
+                    a.notify();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

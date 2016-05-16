@@ -7,12 +7,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.extremecommandos.pocket_zalcoatl.Game;
-
-import java.lang.Process;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
-
 /**
  * Created by kevin on 15/05/2016.
  */

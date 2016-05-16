@@ -51,7 +51,6 @@ public class GameLoopSnake  implements Runnable {
     private Bitmap bitmapFood;
 
     private int score;
-    public Score scoreParcel;
     private int snakeLarge=0;
     private int changeVel;
     private int changeOrientation;
@@ -87,7 +86,6 @@ public class GameLoopSnake  implements Runnable {
         fontSize = viewWidth / 15;
         paint.setColor(Color.WHITE);
         paint.setTextSize(fontSize);
-        scoreParcel = new Score();
 
 
         background = BitmapFactory.decodeResource(resources, R.mipmap.background);
@@ -268,7 +266,7 @@ public class GameLoopSnake  implements Runnable {
         for(Snake snakeParts: bodySnake){
             if(snake.getX() == snakeParts.getX() && snake.getY() == snakeParts.getY()) {
                 stop();
-                returnToMainActivity();
+                returnToMainActivity(score);
             }
         }
 
@@ -423,11 +421,8 @@ public class GameLoopSnake  implements Runnable {
     }
 
     // Here we return the score to main activity
-    public void returnToMainActivity(){
-        scoreParcel.setData(score);
-        Intent intent = new Intent(context,MainActivity.class);
-        intent.putExtra("Score", scoreParcel );
-        startActivity(drawingActivitySnake, intent, Bundle.EMPTY);
+    public void returnToMainActivity(int score) {
+        drawingActivitySnake.returnToMainActivity(score);
     }
 }
 

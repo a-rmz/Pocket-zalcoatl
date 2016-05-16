@@ -43,12 +43,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // esta condición se cumple cuando termina un juego
-        if(getIntent().getParcelableExtra("Score")!= null) {
-            Score hearts = getIntent().getParcelableExtra("Score");
-            game.addHearts(hearts.getData());
-        }
-       game.onResume();
+        game.onResume();
+
     }
 
     @Override
@@ -67,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case Game.SNAKE:
                 game.drawSurface.resumeAnimations();
+                // esta condición se cumple cuando termina un juego
+                game.addHearts(data.getExtras().getInt("Score"));
+                Log.i("REVIEW", "SCORE NENA " + data.getExtras().getInt("Score"));
                 break;
         }
     }
