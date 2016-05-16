@@ -39,7 +39,10 @@
             android:theme="@style/AppMain">
         </activity>
 
-        <service android:name=".utils.FeedService"></service>
+        <service android:name=".utils.FeedService"
+            android:enabled="true"
+            android:exported="true"
+            ></service>
 
     </application>
 

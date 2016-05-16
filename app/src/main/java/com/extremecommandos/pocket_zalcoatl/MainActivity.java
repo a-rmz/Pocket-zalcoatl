@@ -1,7 +1,12 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Binder;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -26,17 +31,40 @@ public class MainActivity extends AppCompatActivity {
     Game game;
 
 
+    Intent intent;
+    FeedService myService;
+    boolean isBound = false;
+
+    ServiceConnection myConnection = new ServiceConnection()
+    {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            FeedService.LocalBinder binder = (FeedService.LocalBinder) service;
+            myService = binder.getService();
+            isBound = true;
+        }
+
+        public void onServiceDisconnected(ComponentName arg0) {
+            isBound = false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game(this);
 
-        ///////////////////AQUI SE INICIA EL SERVICIO//////////////////
-        //el servicio es FeedService en la carpeta Utils
-        //startService(new Intent(getBaseContext(), FeedService.class));
-        ///////////////////CON ESTA LÍNEA DETIENES EL SERVICIO////////////////////
+        ///////////////////////////////CONECT TO THE SERVICE/////////////////////////
+        //poner un booleano en en preferencias para que inici el servicio sólo una vez
+        myService = new FeedService();
+        intent = new Intent(this, FeedService.class);
+        bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
+        //Log.i("TU_PUEDES_NENA", "Cuenta " + myService.getCount());
+        startService(intent);
         //stopService(new Intent(getBaseContext(), FeedService.class));
+        ///////////////////AQUI TERMINA LA LLAMADA AL SERVICIO////////////////////
+
     }
 
 

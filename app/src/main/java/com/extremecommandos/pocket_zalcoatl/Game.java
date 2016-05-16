@@ -2,6 +2,7 @@ package com.extremecommandos.pocket_zalcoatl;
 
 
 import android.content.Intent;
+import android.os.Binder;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 public class Game{
 
     private int Hearts;
+
 
     public static final int SNAKE = 1;
     public static final int FLAPPY = 2;
@@ -133,7 +135,7 @@ public class Game{
             @Override
             public void onClick(View v) {
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
+                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
                 activity.startActivityForResult(intent, SNAKE);
             }
         });
