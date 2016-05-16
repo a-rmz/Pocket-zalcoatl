@@ -1,5 +1,6 @@
 package com.extremecommandos.pocket_zalcoatl;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -61,12 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         ///////////////////////////////CONECT TO THE SERVICE/////////////////////////
-        //poner un booleano en en preferencias para que inici el servicio sólo una vez
-        myService = new FeedService();
-        intent = new Intent(this, FeedService.class);
-        stopService(intent);
-        //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
-        //Log.i("TU_PUEDES_NENA", "Cuenta " + myService.getCount());
+            //poner un booleano en en preferencias para que inici el servicio sólo una vez
+            //myService = new FeedService();
+            //intent = new Intent(this, FeedService.class);
+            //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
+            //Log.i("TU_PUEDES_NENA", "Cuenta " + myService.getCount());
         /////////////////////////////////////////////////////////////////////////////
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
@@ -81,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        if(intent!=null)
+            stopService(intent);
+
         super.onResume();
         game.onResume();
 
@@ -88,12 +91,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
+
         super.onPause();
         game.onPause();
     }
 
     @Override
     protected void onStop() {
+        intent = new Intent(this, FeedService.class);
         startService(intent);
         super.onStop();
         SharedPreferences shared = getPreferences(Context.MODE_PRIVATE);
@@ -127,4 +132,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    /*
+    private boolean isServiceRunning(Class<?> serviceClass){
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        for(ActivityManager.RunningServiceInfo service: manager.getRunningServices(Integer.MAX_VALUE)){
+            if(serviceClass.getName().equals(service.service.getClassName())){
+                return true;
+            }
+        }
+
+        return false;
+    }*/
 }
