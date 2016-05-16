@@ -198,8 +198,8 @@ public class GameLoopSnake  implements Runnable {
                    && snake.getY() <= (food.getY2())
                         )){
                   bodySnake.add(new Snake(snakeBody.getHeight()));
-                    food.setX(random.nextInt((int) viewWidth) - 100);
-                    food.setY(random.nextInt((int) viewHeight) - 100);
+                    food.setX(random.nextInt((int) viewWidth) );
+                    food.setY(random.nextInt((int) viewHeight) );
                     score++;
                 }
                 break;
@@ -208,8 +208,8 @@ public class GameLoopSnake  implements Runnable {
                         && snake.getY() <= (food.getY2())
                         )){
                     bodySnake.add(new Snake(snakeBody.getHeight()));
-                    food.setX(random.nextInt((int) viewWidth) - 100);
-                    food.setY(random.nextInt((int) viewHeight) - 100);
+                    food.setX(random.nextInt((int) viewWidth)) ;
+                    food.setY(random.nextInt((int) viewHeight));
                     score++;
                 }
                 break;
@@ -218,8 +218,8 @@ public class GameLoopSnake  implements Runnable {
                         && snake.getX() <= food.getX2()
                         )){
                     bodySnake.add(new Snake(snakeBody.getHeight()));
-                    food.setX(random.nextInt((int) viewWidth) - 100);
-                    food.setY(random.nextInt((int) viewHeight) - 100);
+                    food.setX(random.nextInt((int) viewWidth));
+                    food.setY(random.nextInt((int) viewHeight));
                     score++;
                 }
                 break;
@@ -228,8 +228,8 @@ public class GameLoopSnake  implements Runnable {
                         && snake.getX() <= food.getX2()
                          )){
                     bodySnake.add(new Snake(snakeBody.getHeight()));
-                    food.setX(random.nextInt((int) viewWidth) - 100);
-                    food.setY(random.nextInt((int) viewHeight) - 100);
+                    food.setX(random.nextInt((int) viewWidth) );
+                    food.setY(random.nextInt((int) viewHeight) );
                     score++;
                 }
                 break;

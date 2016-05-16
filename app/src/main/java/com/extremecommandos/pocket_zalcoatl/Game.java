@@ -2,9 +2,9 @@ package com.extremecommandos.pocket_zalcoatl;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -12,12 +12,9 @@ import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.extremecommandos.pocket_zalcoatl.SnakeGame.DrawingActivitySnake;
-import com.extremecommandos.pocket_zalcoatl.flappySnake.FlappySnakeMain;
 import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
-
-import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
  * Created by alex on 5/6/16.
@@ -44,6 +41,7 @@ public class Game{
     MainActivity activity;
 
     public Game(MainActivity activity) {
+
         Hearts =0;
         this.activity = activity;
 
@@ -181,22 +179,10 @@ public class Game{
 
     public  void addHearts(int hearts){
         this.Hearts = Hearts + hearts;
-
-//        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
-//        builder.setMessage("Game Over, You got " + hearts + " Hearts").
-//        setNeutralButton(
-//                "OK",
-//                new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.cancel();
-//                    }
-//                }
-//
-//        );
-//       builder.create().show();
-        System.out.println("You've got " + hearts + " hearths");
+        Log.i("ALERT", "llevas " + Hearts + " papu");
 
     }
+
+
 
 }

@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
 
+
 public class DrawingActivitySnake extends AppCompatActivity {
     RelativeLayout drawRelativeLayout;
     MySurfaceViewSnake mySurfaceView;
