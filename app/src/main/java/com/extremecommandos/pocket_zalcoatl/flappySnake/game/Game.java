@@ -78,13 +78,12 @@ public class Game {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("Gameloop: " + thread.isAlive());
     }
 
     public void endGame(int score) {
         System.out.println("Game ended");
         returnToMainActivity(score);
-        stop();
     }
 
     public void onTap(MotionEvent event) {
