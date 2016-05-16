@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.extremecommandos.pocket_zalcoatl.SnakeGame.DrawingActivitySnake;
 import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
+import com.extremecommandos.pocket_zalcoatl.flappySnake.FlappySnakeMain;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
@@ -110,7 +111,7 @@ public class Game{
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
+                Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
                 activity.startActivityForResult(intent, SNAKE);
             }
         });
