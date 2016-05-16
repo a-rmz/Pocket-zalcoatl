@@ -63,16 +63,33 @@ public class MainActivity extends AppCompatActivity {
         game = new Game(this);
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
-//        int tmpFun
-        game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
-        game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
-        game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
-        game.pocketGod.setSleep(shared.getInt(getString(R.string.sleep), 50));
-        game.updateStatBars();
+        int tmpHearhts = shared.getInt(getString(R.string.hearths), 50);
+        int tmpFun = shared.getInt(getString(R.string.fun), 50);
+        int tmpHunger = shared.getInt(getString(R.string.hunger), 50);
+        int tmpSleep = shared.getInt(getString(R.string.sleep), 50);
+
         long savedTime = shared.getLong(getString(R.string.date), 0);
         long actual = System.currentTimeMillis();
-        long hours = TimeUnit.MILLISECONDS.toSeconds(actual - savedTime);
-        System.out.println("minutes: " + hours);
+        long minutes = TimeUnit.MILLISECONDS.toSeconds(actual - savedTime);
+
+        for(int i = 0; i < minutes; i++) {
+            if(i % 30 == 0) {
+                tmpHunger = tmpHunger - 5*(i/30);
+            }
+            if(i % 45 == 0) {
+                tmpFun = tmpFun - 5*(i/45);
+            }
+            if(i % 60 == 0) {
+                tmpSleep = tmpSleep - 10*(i/60);
+            }
+        }
+
+
+        game.pocketGod.setHearths(tmpHearhts);
+        game.pocketGod.setFun(tmpFun);
+        game.pocketGod.setHunger(tmpHunger);
+        game.pocketGod.setSleep(tmpSleep);
+        game.updateStatBars();
     }
 
 
