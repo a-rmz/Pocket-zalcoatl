@@ -34,7 +34,7 @@ public class PocketGod {
         this.mainActivity = mainActivity;
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet);
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 4 /*row*/, 4, 4,   spriteSheet);
-        characterAnimation = new Animation(ssl.getSpriteSheet(), 5);
+        characterAnimation = new Animation(ssl.getSpriteSheet(), 8);
         textView = (TextView) mainActivity.findViewById(R.id.textViewHearths);
         textView.setTypeface(Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Tribeca.ttf"));
         isSleeping = false;
