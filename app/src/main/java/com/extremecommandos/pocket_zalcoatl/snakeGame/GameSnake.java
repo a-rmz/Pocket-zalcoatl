@@ -1,4 +1,4 @@
-package com.extremecommandos.pocket_zalcoatl.SnakeGame;
+package com.extremecommandos.pocket_zalcoatl.snakeGame;
 
 
 

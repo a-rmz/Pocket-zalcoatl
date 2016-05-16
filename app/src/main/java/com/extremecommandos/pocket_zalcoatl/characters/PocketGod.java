@@ -33,10 +33,6 @@ public class PocketGod {
         characterAnimation.restart();
     }
 
-    public void pause() {
-        characterAnimation.pause();
-    }
-
     public void stop() {
         characterAnimation.stop();
     }

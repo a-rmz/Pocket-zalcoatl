@@ -1,4 +1,4 @@
-package com.extremecommandos.pocket_zalcoatl.SnakeGame;
+package com.extremecommandos.pocket_zalcoatl.snakeGame;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,8 +12,6 @@ import android.widget.RelativeLayout;
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
-
-import static android.support.v4.app.ActivityCompat.startActivity;
 
 public class DrawingActivitySnake extends AppCompatActivity {
     RelativeLayout drawRelativeLayout;
