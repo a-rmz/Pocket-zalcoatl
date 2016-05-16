@@ -31,7 +31,7 @@ public class DrawingActivitySnake extends AppCompatActivity {
         drawRelativeLayout = (RelativeLayout) findViewById(R.id.drawLayout);
         mySurfaceView = new MySurfaceViewSnake(getApplicationContext(), this.getResources(), this);
         drawRelativeLayout.addView(mySurfaceView);
-        mediaPlayer = MediaPlayer.create(this, R.raw.Artifact_The_Dark_Contenent);
+        mediaPlayer = MediaPlayer.create(this, R.raw.artifact);
         mediaPlayer.start();
     }
 

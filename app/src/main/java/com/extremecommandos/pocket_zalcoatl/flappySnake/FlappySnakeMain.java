@@ -36,7 +36,7 @@ public class FlappySnakeMain extends AppCompatActivity {
         frameLayout.removeAllViews();
         frameLayout.addView(gameSurface);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.Artifact_The_Dark_Contenent);
+        mediaPlayer = MediaPlayer.create(this, R.raw.artifact);
         mediaPlayer.start();
     }
 

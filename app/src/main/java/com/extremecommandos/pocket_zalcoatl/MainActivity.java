@@ -42,19 +42,6 @@ public class MainActivity extends AppCompatActivity {
     FeedService myService;
     boolean isBound = false;
 
-    ServiceConnection myConnection = new ServiceConnection()
-    {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            FeedService.LocalBinder binder = (FeedService.LocalBinder) service;
-            myService = binder.getService();
-            isBound = true;
-        }
-
-        public void onServiceDisconnected(ComponentName arg0) {
-            isBound = false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
