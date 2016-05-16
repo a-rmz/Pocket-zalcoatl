@@ -135,6 +135,7 @@ public class Game {
     }
 
     public void returnToMainActivity(int score) {
+        System.out.println("Return 2 main Game");
         parent.returnToMainActivity(score);
     }
 }

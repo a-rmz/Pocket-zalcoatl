@@ -77,6 +77,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
     public void pauseAnimations() {
         synchronized (animations) {
             try {
+                draw.wait();
                 for(Animation a : animations) {
                     a.wait();
                 }
@@ -89,6 +90,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
     public void resumeAnimations() {
         synchronized (animations) {
             try {
+                draw.notify();
                 for(Animation a : animations) {
                     a.notify();
                 }

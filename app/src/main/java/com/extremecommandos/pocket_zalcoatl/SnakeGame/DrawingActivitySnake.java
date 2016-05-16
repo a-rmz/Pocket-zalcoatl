@@ -1,4 +1,4 @@
-package com.extremecommandos.pocket_zalcoatl.snakeGame;
+package com.extremecommandos.pocket_zalcoatl.SnakeGame;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

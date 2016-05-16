@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        System.out.println("Back on main");
         switch (requestCode) {
             case Game.SNAKE:
                 game.drawSurface.resumeAnimations();
