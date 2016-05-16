@@ -28,6 +28,8 @@ import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 import com.extremecommandos.pocket_zalcoatl.utils.FeedService;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by alex on 3/7/16.
@@ -70,19 +72,22 @@ public class MainActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+//        int tmpFun
         game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
         game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
         game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
         game.pocketGod.setSleep(shared.getInt(getString(R.string.sleep), 50));
         game.updateStatBars();
         long savedTime = shared.getLong(getString(R.string.date), 0);
-
+        long actual = System.currentTimeMillis();
+        long hours = TimeUnit.MILLISECONDS.toSeconds(actual - savedTime);
+        System.out.println("minutes: " + hours);
     }
 
 
     @Override
     protected void onResume() {
-        if(intent!=null)
+        intent = new Intent(this, FeedService.class);
             stopService(intent);
 
         super.onResume();
