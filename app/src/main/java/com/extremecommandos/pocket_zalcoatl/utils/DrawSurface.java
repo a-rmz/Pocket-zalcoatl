@@ -47,9 +47,13 @@ public class DrawSurface extends SurfaceView implements Runnable{
             if(holder.getSurface().isValid()) {
                 canvas = holder.lockCanvas();
                 // Draws the animations
-                for(Animation a : animations) {
-                    canvas.drawBitmap(a.getCurrentImage(), 0, 0, p);
-                }
+                canvas.drawBitmap(animations[0].getCurrentImage(), 0, 0, p);
+                canvas.drawBitmap(
+                        animations[1].getCurrentImage(),
+                        canvas.getWidth()/2 - animations[1].getCurrentImage().getWidth()/2,
+                        canvas.getHeight()/2 - animations[1].getCurrentImage().getHeight()/2,
+                        p
+                );
                 holder.unlockCanvasAndPost(canvas);
             }
         }

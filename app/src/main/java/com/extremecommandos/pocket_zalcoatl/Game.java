@@ -115,9 +115,9 @@ public class Game{
         games.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fun.setProgress(fun.getProgress() + 20);
                 gamesActive = !gamesActive;
                 if(gamesActive) {
+                    fun.setProgress(fun.getProgress() + 20);
                     gamesToolbar.setVisibility(View.VISIBLE);
                     gameSnake.setClickable(true);
                     gameFlappy.setClickable(true);
