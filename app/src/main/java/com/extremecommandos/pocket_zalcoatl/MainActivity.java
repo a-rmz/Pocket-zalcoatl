@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
-        int tmpFun
+//        int tmpFun
         game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
         game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
         game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
