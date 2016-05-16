@@ -17,6 +17,7 @@ import com.extremecommandos.pocket_zalcoatl.SnakeGame.Score;
 import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
+import com.extremecommandos.pocket_zalcoatl.utils.FeedService;
 
 /**
  * Created by alex on 3/7/16.
@@ -24,12 +25,18 @@ import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 public class MainActivity extends AppCompatActivity {
     Game game;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game(this);
 
+        ///////////////////AQUI SE INICIA EL SERVICIO//////////////////
+        //el servicio es FeedService en la carpeta Utils
+        startService(new Intent(getBaseContext(), FeedService.class));
+        ///////////////////CON ESTA LÍNEA DETIENES EL SERVICIO////////////////////
+        //stopService(new Intent(getBaseContext(), FeedService.class));
     }
 
 
@@ -40,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         if(getIntent().getParcelableExtra("Score")!= null) {
             Score hearts = getIntent().getParcelableExtra("Score");
             game.addHearts(hearts.getData());
-            Log.i("REVIEW", "SCORE NENA " + hearts.getData());
         }
        game.onResume();
     }

@@ -48,6 +48,7 @@ public class Game{
     MainActivity activity;
 
     public Game(MainActivity activity) {
+
         Hearts =0;
         this.activity = activity;
 
@@ -179,21 +180,19 @@ public class Game{
 
     public  void addHearts(int hearts){
         this.Hearts = Hearts + hearts;
+        Log.i("ALERT", "llevas " + Hearts + " papu");
+    }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
-        builder.setMessage("Game Over, You got " + hearts + " Hearts").
-        setNeutralButton(
-                "OK",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                }
+    public void isHungry(){
+        life.setProgress(life.getProgress() -1);
+    }
 
-        );
-       builder.create().show();
+    public void isBored(){
+        fun.setProgress(fun.getProgress() -1);
+    }
 
+    public void isTired(){
+        sleep.setProgress(sleep.getProgress() -1);
     }
 
 }

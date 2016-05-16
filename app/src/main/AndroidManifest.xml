@@ -34,6 +34,8 @@
             android:theme="@style/AppMain">
         </activity>
 
+        <service android:name=".utils.FeedService"></service>
+
     </application>
 
 </manifest>
