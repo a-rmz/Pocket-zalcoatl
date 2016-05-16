@@ -75,7 +75,6 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void returnToMainActivity(int score) {
-        System.out.println("Return 2 main GameSurface");
         main.returnToMainActivity(score);
     }
 }

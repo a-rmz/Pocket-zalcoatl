@@ -135,7 +135,7 @@ public class Game{
             @Override
             public void onClick(View v) {
                 pocketGod.setHunger(pocketGod.getHunger() + 5);
-                pocketGod.setHearths(pocketGod.getHearths() - 1);
+                pocketGod.setHearths(pocketGod.getHearths() - 5);
                 updateStatBars();
             }
         });
@@ -143,9 +143,11 @@ public class Game{
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("prevslp: " + pocketGod.getSleep());
-                pocketGod.setSleep(pocketGod.getSleep() + 5);
-                System.out.println("prevslp: " + pocketGod.getSleep());
+                if(PocketGod.isSleeping) {
+                    pocketGod.awake();
+                } else {
+                    pocketGod.goToSleep();
+                }
                 updateStatBars();
             }
         });
@@ -258,7 +260,6 @@ public class Game{
 
     public  void addHearts(int hearts){
         pocketGod.setHearths(pocketGod.getHearths() + hearts);
-        Log.i("ALERT", "llevas " + pocketGod.getHearths() + " papu");
 
     }
 

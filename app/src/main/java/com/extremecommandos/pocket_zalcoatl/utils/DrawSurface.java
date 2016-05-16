@@ -15,6 +15,7 @@ import android.view.SurfaceView;
 import android.widget.ImageView;
 
 import com.extremecommandos.pocket_zalcoatl.R;
+import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 
 /**
  * Created by alex on 3/10/16.
@@ -25,7 +26,8 @@ public class DrawSurface extends SurfaceView implements Runnable{
     SurfaceHolder holder;
     Animation [] animations;
     Canvas canvas;
-    ImageView HeartImage;
+    Paint night;
+    PocketGod god;
 
     boolean isRunning = false;
 
@@ -33,6 +35,9 @@ public class DrawSurface extends SurfaceView implements Runnable{
         this(context);
         holder = getHolder();
         this.animations = animations;
+        night = new Paint();
+        night.setColor(getResources().getColor(R.color.night));
+        night.setAlpha(150);
     }
 
     public DrawSurface(Context context) {
@@ -55,10 +60,13 @@ public class DrawSurface extends SurfaceView implements Runnable{
                 canvas.drawBitmap(animations[0].getCurrentImage(), 0, 0, p);
                 canvas.drawBitmap(
                         animations[1].getCurrentImage(),
-                        canvas.getWidth()/2 - animations[1].getCurrentImage().getWidth()/2,
-                        canvas.getHeight()/2 - animations[1].getCurrentImage().getHeight()/2,
+                        canvas.getWidth() / 2 - animations[1].getCurrentImage().getWidth() / 2,
+                        canvas.getHeight() / 2 - animations[1].getCurrentImage().getHeight() / 2,
                         p
                 );
+                if(PocketGod.isSleeping) {
+                    canvas.drawPaint(night);
+                }
                 holder.unlockCanvasAndPost(canvas);
             }
         }

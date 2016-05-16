@@ -11,6 +11,8 @@ import com.extremecommandos.pocket_zalcoatl.R;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.SpriteSheetLoader;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by alex on 3/10/16.
  */
@@ -23,7 +25,8 @@ public class PocketGod {
     Animation characterAnimation;
     TextView textView;
     private int sleep, fun, hunger, hearths;
-
+    public static boolean isSleeping;
+    private long sleepTime;
     Bitmap spriteSheet;
 
 
@@ -34,6 +37,7 @@ public class PocketGod {
         characterAnimation = new Animation(ssl.getSpriteSheet(), 3);
         textView = (TextView) mainActivity.findViewById(R.id.textViewHearths);
         textView.setTypeface(Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Tribeca.ttf"));
+        isSleeping = false;
     }
 
     public void createGod() {
@@ -86,6 +90,7 @@ public class PocketGod {
         return hunger;
     }
 
+
     public void setHunger(int hunger) {
         this.hunger = (this.hunger > 100) ? 100 : hunger;
         this.hunger = (this.hunger < 0) ? 0 : this.hunger;
@@ -96,7 +101,28 @@ public class PocketGod {
     }
 
     public void setHearths(int hearths) {
-        this.hearths = (this.hearths < 0) ? 0 : hearths;
+        if(this.hearths < 0) {
+            this.hearths = 0;
+        } else {
+            this.hearths = hearths;
+        }
         textView.setText(String.valueOf(hearths));
     }
+
+
+    public void goToSleep() {
+        isSleeping = true;
+        sleepTime = System.currentTimeMillis();
+    }
+    public void awake() {
+        isSleeping = false;
+        long timeSlept = System.currentTimeMillis() - sleepTime;
+        long minutesSlept = TimeUnit.MILLISECONDS.toMinutes(timeSlept);
+        int sleepPoints = 0;
+        for(int i = 0; i < minutesSlept; i++) {
+            if(i % 10 == 0) sleepPoints++;
+        }
+        setSleep(getSleep() + (5*sleepPoints));
+    }
+
 }
