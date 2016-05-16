@@ -64,6 +64,7 @@ public class PocketGod {
 
     public void setSleep(int sleep) {
         this.sleep = (this.sleep > 100) ? 100 : sleep;
+        this.sleep = (this.sleep < 0) ? 0 : this.sleep;
     }
 
     public int getFun() {
@@ -72,6 +73,7 @@ public class PocketGod {
 
     public void setFun(int fun) {
         this.fun = (this.fun > 100) ? 100 : fun;
+        this.fun = (this.fun < 0) ? 0 : this.fun;
     }
 
     public int getHunger() {
@@ -80,6 +82,7 @@ public class PocketGod {
 
     public void setHunger(int hunger) {
         this.hunger = (this.hunger > 100) ? 100 : hunger;
+        this.hunger = (this.hunger < 0) ? 0 : this.hunger;
     }
 
     public int getHearths() {
