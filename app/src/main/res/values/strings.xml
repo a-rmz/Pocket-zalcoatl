@@ -9,4 +9,12 @@
     <string name="title_activity_splash_screen1">SplashScreen</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    
+    <!-- Shared preferences -->
+    <string name="hearths">hearths</string>
+    <string name="hunger">hunger</string>
+    <string name="life">life</string>
+    <string name="sleep">sleep</string>
+    <string name="fun">fun</string>
+    <string name="date">last date</string>
 </resources>

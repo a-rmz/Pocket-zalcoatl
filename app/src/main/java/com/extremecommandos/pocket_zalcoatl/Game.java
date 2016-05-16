@@ -23,9 +23,6 @@ import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
  */
 public class Game{
 
-    private int Hearts;
-
-
     public static final int SNAKE = 1;
     public static final int FLAPPY = 2;
 
@@ -40,13 +37,12 @@ public class Game{
     private boolean soundActive, notifActive, gamesActive;
     private int score =0;
 
-    PocketGod pocketGod;
+    public PocketGod pocketGod;
     Background background;
     MainActivity activity;
 
     public Game(MainActivity activity) {
 
-        Hearts =0;
         this.activity = activity;
 
 
@@ -98,6 +94,32 @@ public class Game{
         fun = (RoundCornerProgressBar) activity.findViewById(R.id.fun_bar);
     }
 
+    protected void updateStatBars() {
+        if(pocketGod.getLife() <= 100 && pocketGod.getLife() > 60) {
+            life.setProgressColor(activity.getResources().getColor(R.color.normal));
+        } else if(pocketGod.getLife() <= 60 && pocketGod.getLife() > 25) {
+            life.setProgressColor(activity.getResources().getColor(R.color.warning));
+        } else {
+            life.setProgressColor(activity.getResources().getColor(R.color.critic));
+        }
+
+        if(pocketGod.getFun() <= 100 && pocketGod.getFun() > 60) {
+            fun.setProgressColor(activity.getResources().getColor(R.color.normal));
+        } else if(pocketGod.getFun() <= 60 && pocketGod.getFun() > 25) {
+            fun.setProgressColor(activity.getResources().getColor(R.color.warning));
+        } else {
+            fun.setProgressColor(activity.getResources().getColor(R.color.critic));
+        }
+
+        if(pocketGod.getFun() <= 100 && pocketGod.getFun() > 60) {
+            fun.setProgressColor(activity.getResources().getColor(R.color.normal));
+        } else if(pocketGod.getFun() <= 60 && pocketGod.getFun() > 25) {
+            fun.setProgressColor(activity.getResources().getColor(R.color.warning));
+        } else {
+            fun.setProgressColor(activity.getResources().getColor(R.color.critic));
+        }
+    }
+
 
     private void setActionButtonListeners() {
         feed.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +139,9 @@ public class Game{
         games.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fun.setProgress(fun.getProgress() + 20);
                 gamesActive = !gamesActive;
-                if(gamesActive) {
+                if (gamesActive) {
+                    fun.setProgress(fun.getProgress() + 20);
                     gamesToolbar.setVisibility(View.VISIBLE);
                     gameSnake.setClickable(true);
                     gameFlappy.setClickable(true);
@@ -161,7 +183,7 @@ public class Game{
     }
 
     public void isHungry(){
-        life.setProgress(life.getProgress() -1);
+        life.setProgress(life.getProgress() - 1);
     }
 
     public void isBored(){
@@ -213,11 +235,26 @@ public class Game{
     }
 
     public  void addHearts(int hearts){
-        this.Hearts = Hearts + hearts;
-        Log.i("ALERT", "llevas " + Hearts + " papu");
+        pocketGod.setHearths(pocketGod.getHearths() + hearts);
+        Log.i("ALERT", "llevas " + pocketGod.getHearths() + " papu");
 
     }
 
+    public int getHearths() {
+        return pocketGod.getHearths();
+    }
+
+    public int getLife() {
+        return pocketGod.getLife();
+    }
+
+    public int getFun() {
+        return pocketGod.getFun();
+    }
+
+    public int getHunger() {
+        return pocketGod.getHunger();
+    }
 
 
 }

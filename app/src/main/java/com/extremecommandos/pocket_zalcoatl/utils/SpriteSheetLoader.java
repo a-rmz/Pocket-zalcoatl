@@ -36,6 +36,29 @@ public class SpriteSheetLoader {
         }
     }
 
+    public SpriteSheetLoader(int columns, int rows, int columnsReal, int rowsReal, Bitmap source) {
+        this.width = source.getWidth() / columnsReal;
+        this.height = source.getHeight() / rowsReal;
+        this.columns = columns;
+        this.rows = rows;
+
+        this.source = source;
+
+        spriteSheet = new Bitmap[rows * columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+
+//                spriteSheet[(i * columns) + j] = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
+
+                spriteSheet[(i * columns) + j] = Bitmap.createBitmap(source, (j * this.width), (i * this.height), this.width, this.height);
+                spriteSheet[(i * columns) + j].setHasAlpha(true);
+//                spriteSheet[(i * columns) + j] = Bitmap.createScaledBitmap(spriteSheet[(i * columns) + j], this.width, this.height, true);
+
+            }
+        }
+    }
+
 
     public Bitmap[] getSpriteSheet() {
         return spriteSheet;

@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -55,15 +59,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         game = new Game(this);
 
+
         ///////////////////////////////CONECT TO THE SERVICE/////////////////////////
         //poner un booleano en en preferencias para que inici el servicio sólo una vez
         myService = new FeedService();
         intent = new Intent(this, FeedService.class);
-        bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
+        stopService(intent);
+        //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
         //Log.i("TU_PUEDES_NENA", "Cuenta " + myService.getCount());
-        startService(intent);
-        //stopService(new Intent(getBaseContext(), FeedService.class));
-        ///////////////////AQUI TERMINA LA LLAMADA AL SERVICIO////////////////////
+        /////////////////////////////////////////////////////////////////////////////
+
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
+        game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
+        game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
+        game.pocketGod.setLife(shared.getInt(getString(R.string.life), 50));
+        long savedTime = shared.getLong(getString(R.string.date), 0);
 
     }
 
@@ -79,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         game.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        startService(intent);
+        super.onStop();
+        SharedPreferences shared = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putInt(getString(R.string.hearths), game.getHearths());
+        editor.putInt(getString(R.string.fun), game.getFun());
+        editor.putInt(getString(R.string.hunger), game.getHunger());
+        editor.putInt(getString(R.string.life), game.getLife());
+        editor.putLong(getString(R.string.date), System.currentTimeMillis());
+        editor.apply();
     }
 
     @Override
