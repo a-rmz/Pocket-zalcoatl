@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.view.MotionEvent;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 
 public class MySurfaceViewSnake extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener{

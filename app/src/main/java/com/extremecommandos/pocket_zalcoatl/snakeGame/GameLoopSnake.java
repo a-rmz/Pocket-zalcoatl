@@ -1,9 +1,7 @@
 package com.extremecommandos.pocket_zalcoatl.SnakeGame;
 
 
-import android.content.Intent;
 import android.content.Context;
-import android.os.Bundle;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,16 +9,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import com.extremecommandos.pocket_zalcoatl.MainActivity;
+
 import com.extremecommandos.pocket_zalcoatl.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import static android.support.v4.app.ActivityCompat.startActivity;
 
 
 /**

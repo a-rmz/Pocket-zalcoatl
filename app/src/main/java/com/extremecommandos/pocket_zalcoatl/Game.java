@@ -1,12 +1,9 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -15,12 +12,12 @@ import android.view.ViewStub;
 import android.widget.Button;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.extremecommandos.pocket_zalcoatl.flappySnake.FlappySnakeMain;
 import com.extremecommandos.pocket_zalcoatl.SnakeGame.DrawingActivitySnake;
 import com.extremecommandos.pocket_zalcoatl.characters.PocketGod;
 import com.extremecommandos.pocket_zalcoatl.utils.Animation;
 import com.extremecommandos.pocket_zalcoatl.utils.DrawSurface;
 
-import static android.support.v4.app.ActivityCompat.startActivity;
 import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
@@ -31,7 +28,7 @@ public class Game{
     private int Hearts;
 
     public static final int SNAKE = 1;
-    public static final int FLAPPY = 1;
+    public static final int FLAPPY = 2;
 
     Toolbar actionMenu;
     Button feed, rest, games, info;
@@ -117,8 +114,8 @@ public class Game{
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
-                startActivityForResult(activity, intent, SNAKE, Bundle.EMPTY);
+                Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
+                startActivityForResult(activity, intent, FLAPPY, Bundle.EMPTY);
 
             }
         });
@@ -131,6 +128,14 @@ public class Game{
                 fun.setProgress(0);
             }
         });
+    }
+
+    public void isHungry(){
+        life.setProgress(life.getProgress() -1);
+    }
+
+    public void isBored(){
+        fun.setProgress(fun.getProgress() - 1);
     }
 
     private void replaceSurface() {
@@ -175,26 +180,14 @@ public class Game{
 
     protected void onPause() {
         drawSurface.pause();
-        pocketGod.pause();
     }
 
     public  void addHearts(int hearts){
         this.Hearts = Hearts + hearts;
         Log.i("ALERT", "llevas " + Hearts + " papu");
+
     }
 
 
-    public void isHungry(){
-        life.setProgress(life.getProgress() -1);
-    }
-
-    public void isBored(){
-        fun.setProgress(fun.getProgress() -1);
-    }
-
-
-    public void isTired(){
-        sleep.setProgress(sleep.getProgress() -1);
-    }
 
 }
