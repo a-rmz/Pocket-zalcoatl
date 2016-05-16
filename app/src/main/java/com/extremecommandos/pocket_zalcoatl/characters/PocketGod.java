@@ -33,8 +33,8 @@ public class PocketGod {
     public PocketGod(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet);
-        SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 2 /*row*/, 4, 4,   spriteSheet);
-        characterAnimation = new Animation(ssl.getSpriteSheet(), 3);
+        SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 4 /*row*/, 4, 4,   spriteSheet);
+        characterAnimation = new Animation(ssl.getSpriteSheet(), 5);
         textView = (TextView) mainActivity.findViewById(R.id.textViewHearths);
         textView.setTypeface(Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Tribeca.ttf"));
         isSleeping = false;
@@ -92,7 +92,9 @@ public class PocketGod {
 
 
     public void setHunger(int hunger) {
-        this.hunger = (this.hunger > 100) ? 100 : hunger;
+        if(getHearths() > 0) {
+            this.hunger = (this.hunger > 100) ? 100 : hunger;
+        }
         this.hunger = (this.hunger < 0) ? 0 : this.hunger;
     }
 
@@ -101,7 +103,7 @@ public class PocketGod {
     }
 
     public void setHearths(int hearths) {
-        if(this.hearths < 0) {
+        if(hearths <= 0) {
             this.hearths = 0;
         } else {
             this.hearths = hearths;

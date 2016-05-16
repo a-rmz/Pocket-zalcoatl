@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         long actual = System.currentTimeMillis();
         long minutes = TimeUnit.MILLISECONDS.toSeconds(actual - savedTime);
 
-        for(int i = 0; i < minutes; i++) {
+        for(int i = 0; i < minutes && savedTime > 0; i++) {
             if(i % 30 == 0) {
                 tmpHunger = tmpHunger - 5*(i/30);
             }
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         SharedPreferences shared = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = shared.edit();
-        editor.putInt(getString(R.string.hearths), /*game.getHearths()*/ 20);
+        editor.putInt(getString(R.string.hearths), game.getHearths());
         editor.putInt(getString(R.string.fun), game.getFun());
         editor.putInt(getString(R.string.hunger), game.getHunger());
         editor.putInt(getString(R.string.sleep), game.getSleep());

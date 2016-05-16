@@ -54,7 +54,6 @@ public class FeedService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
         running = true;
-        Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
 
         Intent intent1 = new Intent();
         final PendingIntent pIntent = PendingIntent.getActivity(this,0,intent1,0);
@@ -68,8 +67,6 @@ public class FeedService extends Service {
 
              while (running) {
 
-                // paara saber si funciona
-                 Log.i("WARNING", "Servicio Trabajando");
                  count1++;
                  count2++;
                  count3++;
@@ -132,7 +129,6 @@ public class FeedService extends Service {
                 e.printStackTrace();
             }
             super.onDestroy();
-            Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
         }
     }
 

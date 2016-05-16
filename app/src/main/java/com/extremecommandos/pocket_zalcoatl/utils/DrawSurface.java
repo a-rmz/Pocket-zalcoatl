@@ -27,7 +27,6 @@ public class DrawSurface extends SurfaceView implements Runnable{
     Animation [] animations;
     Canvas canvas;
     Paint night;
-    PocketGod god;
 
     boolean isRunning = false;
 
@@ -37,7 +36,7 @@ public class DrawSurface extends SurfaceView implements Runnable{
         this.animations = animations;
         night = new Paint();
         night.setColor(getResources().getColor(R.color.night));
-        night.setAlpha(150);
+        night.setAlpha(210);
     }
 
     public DrawSurface(Context context) {
