@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     Intent intent;
-    FeedService myService;
-    boolean isBound = false;
     MediaPlayer mediaPlayer;
 
 
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game(this);
-
-        mediaPlayer = MediaPlayer.create(this, R.raw.Jungle_Atmosphere_Late_Night);
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
         int tmpHearhts = shared.getInt(getString(R.string.hearths), 50);
@@ -87,12 +83,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        mediaPlayer = MediaPlayer.create(this, R.raw.jungle);
         mediaPlayer.start();
-        ///////////////////////////////CONNECT TO THE SERVICE/////////////////////////
-            //myService = new FeedService();
-            //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
-            //Log.i("WARNING", "feed " + myService.getCountFeed());
-        //////////////////////////////////////////////////////////////////////////
+
             intent = new Intent(this, FeedService.class);
             stopService(intent);
 
