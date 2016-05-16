@@ -112,8 +112,8 @@ public class Game{
             public void onClick(View v) {
                 fun.setProgress(fun.getProgress() + 10);
                 drawSurface.pauseAnimations();
-                Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
-                startActivityForResult(activity, intent, FLAPPY, Bundle.EMPTY);
+                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
+                activity.startActivityForResult(intent, SNAKE);
             }
         });
 
