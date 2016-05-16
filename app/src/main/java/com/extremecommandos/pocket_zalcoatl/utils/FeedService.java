@@ -66,15 +66,31 @@ public class FeedService extends Service {
 
                  if(count==10){
                    notification = new Notification.Builder(getApplicationContext())
-                           .setContentTitle("Hey! I'm Hungry")
-                           .setContentText("Please, feed me")
+                           .setContentTitle(getResources().getString(R.string.TitleHungry))
+                           .setContentText(getResources().getString(R.string.TextHungry))
                            .setSmallIcon(R.drawable.feed)
                             .setContentIntent(pIntent).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                      notificationManager.notify(0,notification);
                  }
-                 if(count==15){}
-                 if(count==20){}
+                 if(count==15){
+                     notification = new Notification.Builder(getApplicationContext())
+                             .setContentTitle(getResources().getString(R.string.TitleBored))
+                             .setContentText(getResources().getString(R.string.TextBored))
+                             .setSmallIcon(R.drawable.feed)
+                             .setContentIntent(pIntent).getNotification();
+                     NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                     notificationManager.notify(0,notification);
+                 }
+                 if(count==20){
+                     notification = new Notification.Builder(getApplicationContext())
+                             .setContentTitle(getResources().getString(R.string.TitleTired))
+                             .setContentText(getResources().getString(R.string.TextTired))
+                             .setSmallIcon(R.drawable.feed)
+                             .setContentIntent(pIntent).getNotification();
+                     NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                     notificationManager.notify(0,notification);
+                 }
 
                  try {
                      Thread.sleep(1000);
@@ -102,9 +118,5 @@ public class FeedService extends Service {
     }
 
 
-    public  long getCount(){
-        return count;
+
     }
-
-
-}

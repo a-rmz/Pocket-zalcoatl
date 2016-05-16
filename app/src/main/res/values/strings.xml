@@ -17,4 +17,14 @@
     <string name="sleep">sleep</string>
     <string name="fun">fun</string>
     <string name="date">last date</string>
+
+    <!--Notifications -->
+    <string name="TitleHungry">Hey! I´m Hungry</string>
+    <string name="TextHungry">Please, feed me</string>
+    <string name="TitleTired">Hey! I'm Tired</string>
+    <string name="TextTired">I need to sleep</string>
+    <string name="TitleBored">Hey! I'm Bored</string>
+    <string name="TextBored">Play with me</string>
+
+
 </resources>
