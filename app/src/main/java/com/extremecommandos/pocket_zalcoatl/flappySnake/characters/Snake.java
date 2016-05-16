@@ -50,7 +50,6 @@ public class Snake {
     }
 
     public void onTap(MotionEvent event) {
-        //int dy = -(int) ((pressure > 0.19) ? (270 * pressure) : (220 * pressure));
         if(isAlive()) {
             int dy = -30;
             pos.setDy(dimensions.dpToPx(dy));

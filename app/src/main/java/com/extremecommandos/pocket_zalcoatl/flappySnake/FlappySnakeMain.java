@@ -65,17 +65,14 @@ public class FlappySnakeMain extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        finish();
-        System.out.println("onStop, finishing: " + isFinishing());
+        gameSurface.onPause();
     }
 
     public void returnToMainActivity(int score) {
-        System.out.println("Return 2 main Main");
         Intent intent = new Intent(FlappySnakeMain.this, MainActivity.class);
         intent.putExtra("Score", score);
         setResult(0, intent);
+        gameSurface.stop();
         finish();
-        System.out.println("returnToMain, finishing: " + isFinishing());
-        onStop();
     }
 }

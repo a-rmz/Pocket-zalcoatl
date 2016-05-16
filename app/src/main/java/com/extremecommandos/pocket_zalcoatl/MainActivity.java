@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        super.onResume();
         ///////////////////////////////CONNECT TO THE SERVICE/////////////////////////
             //myService = new FeedService();
             //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
@@ -103,14 +104,12 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(this, FeedService.class);
             stopService(intent);
 
-        super.onResume();
         game.onResume();
 
     }
 
     @Override
     protected void onPause() {
-
         super.onPause();
         game.onPause();
     }
@@ -137,17 +136,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println("Back on main");
-        switch (requestCode) {
-            case Game.SNAKE:
-                game.drawSurface.resumeAnimations();
-                game.addHearts(data.getExtras().getInt("Score"));
-                break;
-            case Game.FLAPPY:
-                game.drawSurface.resumeAnimations();
-                game.addHearts(data.getExtras().getInt("Score"));
-                break;
-        }
+        game.drawSurface.resumeAnimations();
+        game.addHearts(data.getExtras().getInt("Score"));
     }
 
 }

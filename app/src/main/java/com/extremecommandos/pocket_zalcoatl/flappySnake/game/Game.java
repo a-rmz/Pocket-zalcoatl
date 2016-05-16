@@ -21,7 +21,6 @@ public class Game {
 
     private Thread thread;
     private GameLoop gameLoop;
-    private SurfaceHolder surfaceHolder;
     public Resources resources;
     public Snake snake;
     public Background background;
@@ -37,7 +36,6 @@ public class Game {
 
 
     public Game(SurfaceHolder surfaceHolder, Resources resources, Dimensions dimensions, GameSurface parent) {
-        this.surfaceHolder = surfaceHolder;
         this.resources = resources;
         this.parent = parent;
 
@@ -78,12 +76,6 @@ public class Game {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Gameloop: " + thread.isAlive());
-    }
-
-    public void endGame(int score) {
-        System.out.println("Game ended");
-        returnToMainActivity(score);
     }
 
     public void onTap(MotionEvent event) {
@@ -91,14 +83,14 @@ public class Game {
             startGame();
         } else if (gameLoop.hasLost()){
             if(lost.getBtn().contains((int) event.getX(), (int) event.getY())) {
-                endGame(pointCounter.getPointsInt());
+                returnToMainActivity(pointCounter.getPointsInt());
             }
+        } else if(back.contains((int) event.getX(), (int) event.getY())) {
+            returnToMainActivity(0);
         } else {
             snake.onTap(event);
         }
-        if(back.contains((int) event.getX(), (int) event.getY())) {
-            endGame(0);
-        }
+
     }
 
     public Rect getScreenDimens() {
@@ -134,7 +126,7 @@ public class Game {
     }
 
     public void returnToMainActivity(int score) {
-        System.out.println("Return 2 main Game");
+        gameLoop.stop();
         parent.returnToMainActivity(score);
     }
 }
