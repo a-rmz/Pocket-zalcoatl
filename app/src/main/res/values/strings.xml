@@ -17,6 +17,7 @@
     <string name="sleep">sleep</string>
     <string name="fun">fun</string>
     <string name="date">last date</string>
+    <string name="intent">last intent</string>
 
     <!--Notifications -->
     <string name="TitleHungry">Hey! I\'m Hungry</string>

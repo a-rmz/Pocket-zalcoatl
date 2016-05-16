@@ -62,15 +62,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         game = new Game(this);
 
-
-        ///////////////////////////////CONECT TO THE SERVICE/////////////////////////
-            //poner un booleano en en preferencias para que inici el servicio sólo una vez
-            //myService = new FeedService();
-            //intent = new Intent(this, FeedService.class);
-            //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
-            //Log.i("TU_PUEDES_NENA", "Cuenta " + myService.getCount());
-        /////////////////////////////////////////////////////////////////////////////
-
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
         int tmpHearhts = shared.getInt(getString(R.string.hearths), 50);
         int tmpFun = shared.getInt(getString(R.string.fun), 50);
@@ -104,7 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        intent = new Intent(this, FeedService.class);
+        ///////////////////////////////CONNECT TO THE SERVICE/////////////////////////
+            //myService = new FeedService();
+            //bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
+            //Log.i("WARNING", "feed " + myService.getCountFeed());
+        //////////////////////////////////////////////////////////////////////////
+            intent = new Intent(this, FeedService.class);
             stopService(intent);
 
         super.onResume();
@@ -155,15 +151,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-    /*
-    private boolean isServiceRunning(Class<?> serviceClass){
-        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        for(ActivityManager.RunningServiceInfo service: manager.getRunningServices(Integer.MAX_VALUE)){
-            if(serviceClass.getName().equals(service.service.getClassName())){
-                return true;
-            }
-        }
 
-        return false;
-    }*/
 }
