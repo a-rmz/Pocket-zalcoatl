@@ -82,9 +82,7 @@ public class Game {
         if(!hasStarted) {
             startGame();
         } else if (gameLoop.hasLost()){
-            if(lost.getBtn().contains((int) event.getX(), (int) event.getY())) {
-                returnToMainActivity(pointCounter.getPointsInt());
-            }
+            returnToMainActivity(pointCounter.getPointsInt());
         } else if(back.contains((int) event.getX(), (int) event.getY())) {
             returnToMainActivity(0);
         } else {

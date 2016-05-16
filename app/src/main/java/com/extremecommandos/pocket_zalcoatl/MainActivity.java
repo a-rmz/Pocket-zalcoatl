@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     MediaPlayer mediaPlayer;
+    boolean soundActive;
 
 
     @Override
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         int tmpFun = shared.getInt(getString(R.string.fun), 50);
         int tmpHunger = shared.getInt(getString(R.string.hunger), 50);
         int tmpSleep = shared.getInt(getString(R.string.sleep), 50);
+        soundActive = shared.getBoolean(getResources().getString(R.string.sound_caption), true);
 
         long savedTime = shared.getLong(getString(R.string.date), 0);
         long actual = System.currentTimeMillis();
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(getString(R.string.hunger), game.getHunger());
         editor.putInt(getString(R.string.sleep), game.getSleep());
         editor.putLong(getString(R.string.date), System.currentTimeMillis());
+        editor.putBoolean(getString(R.string.sound_caption), game.getSoundState());
         editor.apply();
     }
 

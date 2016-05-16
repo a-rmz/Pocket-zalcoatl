@@ -47,7 +47,11 @@ public class Game{
         this.activity = activity;
 
 
-        setSoundOn();
+        if(activity.soundActive) {
+            setSoundOn();
+        } else {
+            setSoundOff();
+        }
         setNotifOn();
 
         gamesActive = false;
@@ -186,12 +190,9 @@ public class Game{
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                life.setProgress(0);
-                sleep.setProgress(0);
-                fun.setProgress(0);
-                pocketGod.setSleep(0);
-                pocketGod.setFun(0);
-                pocketGod.setHunger(0);
+//                pocketGod.setSleep(0);
+//                pocketGod.setFun(0);
+//                pocketGod.setHunger(0);
             }
         });
     }

@@ -32,7 +32,7 @@ public class GameLoop implements Runnable {
         this.columnManager = game.columnManager;
 
         p = new Paint(Paint.ANTI_ALIAS_FLAG);
-        p.setColor(Color.RED);
+        p.setColor(Color.TRANSPARENT);
         p.setStyle(Paint.Style.STROKE);
 
         t = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -116,7 +116,7 @@ public class GameLoop implements Runnable {
         // Background 1
         canvas.drawBitmap(game.background.getBg(), game.background.getViewBounds(), game.getScreenDimens(), t);
 
-        if(game.hasStarted() && !hasLost()) {
+        if(game.hasStarted()) {
             // Snake collider
             canvas.drawRect(snake.getCollider(), p);
             // Snake bmp
@@ -142,13 +142,6 @@ public class GameLoop implements Runnable {
                     t);
 
             canvas.drawRect(game.getBackArrow(), p);
-        } else if(hasLost()) {
-            canvas.drawRect(game.lost.getDialogFrame(), p);
-            canvas.drawText("Woah, you earned",
-                    game.lost.getDialogFrame().left + game.dimensions.dpToPx(5),
-                    game.lost.getDialogFrame().top + game.dimensions.dpToPx(25),
-                    text);
-            canvas.drawRect(game.lost.getBtn(), p);
         } else {
             canvas.drawPaint(shadow);
             canvas.drawBitmap(game.start,
