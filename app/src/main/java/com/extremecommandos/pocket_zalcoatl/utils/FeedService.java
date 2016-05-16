@@ -90,7 +90,7 @@ public class FeedService extends Service {
                      notification2 = new Notification.Builder(getApplicationContext())
                              .setContentTitle(getResources().getString(R.string.TitleBored))
                              .setContentText(getResources().getString(R.string.TextBored))
-                             .setSmallIcon(R.drawable.feed)
+                             .setSmallIcon(R.drawable.play)
                              .setContentIntent(pIntent2).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                      notificationManager.notify(1,notification2);
@@ -101,7 +101,7 @@ public class FeedService extends Service {
                      notification3 = new Notification.Builder(getApplicationContext())
                              .setContentTitle(getResources().getString(R.string.TitleTired))
                              .setContentText(getResources().getString(R.string.TextTired))
-                             .setSmallIcon(R.drawable.feed)
+                             .setSmallIcon(R.drawable.sleep)
                              .setContentIntent(pIntent3).getNotification();
                      NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                      notificationManager.notify(2,notification3);

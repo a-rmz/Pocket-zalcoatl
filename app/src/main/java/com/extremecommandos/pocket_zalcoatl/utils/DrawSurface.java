@@ -12,6 +12,9 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.ImageView;
+
+import com.extremecommandos.pocket_zalcoatl.R;
 
 /**
  * Created by alex on 3/10/16.
@@ -22,6 +25,8 @@ public class DrawSurface extends SurfaceView implements Runnable{
     SurfaceHolder holder;
     Animation [] animations;
     Canvas canvas;
+    ImageView HeartImage;
+
     boolean isRunning = false;
 
     public DrawSurface(Context context, Animation [] animations) {

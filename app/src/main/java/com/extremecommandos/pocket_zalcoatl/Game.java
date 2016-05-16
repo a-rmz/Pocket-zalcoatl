@@ -130,6 +130,7 @@ public class Game{
             @Override
             public void onClick(View v) {
                 pocketGod.setHunger(pocketGod.getHunger() + 5);
+                pocketGod.setHearths(pocketGod.getHearths()-1);
                 updateStatBars();
             }
         });
@@ -175,7 +176,6 @@ public class Game{
             @Override
             public void onClick(View v) {
                 drawSurface.pauseAnimations();
-
                 Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
                 activity.startActivityForResult(intent, SNAKE);
                 pocketGod.setFun(pocketGod.getFun() + 5);

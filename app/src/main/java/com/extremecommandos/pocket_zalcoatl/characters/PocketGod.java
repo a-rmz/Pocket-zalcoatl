@@ -2,6 +2,8 @@ package com.extremecommandos.pocket_zalcoatl.characters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
 import com.extremecommandos.pocket_zalcoatl.R;
@@ -18,6 +20,7 @@ public class PocketGod {
     private String name;
     MainActivity mainActivity;
     Animation characterAnimation;
+    TextView textView;
     private int sleep, fun, hunger, hearths;
 
     Bitmap spriteSheet;
@@ -28,6 +31,8 @@ public class PocketGod {
         spriteSheet = BitmapFactory.decodeResource(mainActivity.getResources(), R.drawable.spritesheet);
         SpriteSheetLoader ssl = new SpriteSheetLoader(4 /*columns*/, 2 /*row*/, 4, 4,   spriteSheet);
         characterAnimation = new Animation(ssl.getSpriteSheet(), 3);
+        textView = (TextView) mainActivity.findViewById(R.id.textViewHearths);
+
     }
 
     public void createGod() {
@@ -90,6 +95,7 @@ public class PocketGod {
     }
 
     public void setHearths(int hearths) {
+        textView.setText(String.valueOf(hearths));
         this.hearths = hearths;
     }
 }
