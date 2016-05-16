@@ -1,6 +1,7 @@
 package com.extremecommandos.pocket_zalcoatl;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Binder;
 import android.support.design.widget.FloatingActionButton;
@@ -41,7 +42,7 @@ public class Game{
     Background background;
     MainActivity activity;
 
-    public Game(MainActivity activity) {
+    public Game(final MainActivity activity) {
 
         this.activity = activity;
 
@@ -99,7 +100,7 @@ public class Game{
         fun.setProgress(pocketGod.getFun());
         sleep.setProgress(pocketGod.getSleep());
 
-        if(pocketGod.getHunger() <= 100 && pocketGod.getHunger() > 60) {
+        if(pocketGod.getHunger() > 60) {
             life.setProgressColor(activity.getResources().getColor(R.color.normal));
         } else if(pocketGod.getHunger() <= 60 && pocketGod.getHunger() > 25) {
             life.setProgressColor(activity.getResources().getColor(R.color.warning));
@@ -107,7 +108,7 @@ public class Game{
             life.setProgressColor(activity.getResources().getColor(R.color.critic));
         }
 
-        if(pocketGod.getFun() <= 100 && pocketGod.getFun() > 60) {
+        if(pocketGod.getFun() > 60) {
             fun.setProgressColor(activity.getResources().getColor(R.color.normal));
         } else if(pocketGod.getFun() <= 60 && pocketGod.getFun() > 25) {
             fun.setProgressColor(activity.getResources().getColor(R.color.warning));
@@ -115,7 +116,7 @@ public class Game{
             fun.setProgressColor(activity.getResources().getColor(R.color.critic));
         }
 
-        if(pocketGod.getSleep() <= 100 && pocketGod.getSleep() > 60) {
+        if(pocketGod.getSleep() > 60) {
             sleep.setProgressColor(activity.getResources().getColor(R.color.normal));
         } else if(pocketGod.getSleep() <= 60 && pocketGod.getSleep() > 25) {
             sleep.setProgressColor(activity.getResources().getColor(R.color.warning));
@@ -130,7 +131,7 @@ public class Game{
             @Override
             public void onClick(View v) {
                 pocketGod.setHunger(pocketGod.getHunger() + 5);
-                pocketGod.setHearths(pocketGod.getHearths()-1);
+                pocketGod.setHearths(pocketGod.getHearths() - 1);
                 updateStatBars();
             }
         });
@@ -220,10 +221,17 @@ public class Game{
 
     void setSoundOn() {
         soundActive = true;
+        if(activity.mediaPlayer != null) {
+            activity.mediaPlayer.start();
+        }
     }
 
     void setSoundOff() {
         soundActive = false;
+        if(activity.mediaPlayer != null) {
+            activity.mediaPlayer.pause();
+        }
+
     }
 
     boolean getNotifState() {

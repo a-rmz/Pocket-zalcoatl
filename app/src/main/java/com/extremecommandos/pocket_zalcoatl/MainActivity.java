@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         game = new Game(this);
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
-        int tmpHearhts = shared.getInt(getString(R.string.hearths), 50);
+        int tmpHearhts = shared.getInt(getString(R.string.hearths), 25);
         int tmpFun = shared.getInt(getString(R.string.fun), 50);
         int tmpHunger = shared.getInt(getString(R.string.hunger), 50);
         int tmpSleep = shared.getInt(getString(R.string.sleep), 50);
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         SharedPreferences shared = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = shared.edit();
-        editor.putInt(getString(R.string.hearths), game.getHearths());
+        editor.putInt(getString(R.string.hearths), /*game.getHearths()*/ 20);
         editor.putInt(getString(R.string.fun), game.getFun());
         editor.putInt(getString(R.string.hunger), game.getHunger());
         editor.putInt(getString(R.string.sleep), game.getSleep());

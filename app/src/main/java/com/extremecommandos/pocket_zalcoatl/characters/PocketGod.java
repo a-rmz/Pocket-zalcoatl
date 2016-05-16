@@ -96,7 +96,7 @@ public class PocketGod {
     }
 
     public void setHearths(int hearths) {
+        this.hearths = (this.hearths < 0) ? 0 : hearths;
         textView.setText(String.valueOf(hearths));
-        this.hearths = hearths;
     }
 }
