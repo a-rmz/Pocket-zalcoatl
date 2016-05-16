@@ -1,6 +1,5 @@
 package com.extremecommandos.pocket_zalcoatl.SnakeGame;
 
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.media.MediaPlayer;
 
 
 import com.extremecommandos.pocket_zalcoatl.MainActivity;
@@ -17,6 +18,7 @@ import com.extremecommandos.pocket_zalcoatl.R;
 public class DrawingActivitySnake extends AppCompatActivity {
     RelativeLayout drawRelativeLayout;
     MySurfaceViewSnake mySurfaceView;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class DrawingActivitySnake extends AppCompatActivity {
         drawRelativeLayout = (RelativeLayout) findViewById(R.id.drawLayout);
         mySurfaceView = new MySurfaceViewSnake(getApplicationContext(), this.getResources(), this);
         drawRelativeLayout.addView(mySurfaceView);
+        mediaPlayer = MediaPlayer.create(this, R.raw.Artifact_The_Dark_Contenent);
+        mediaPlayer.start();
     }
 
     public void onWindowFocusChanged(boolean hasFocus){
@@ -46,6 +50,7 @@ public class DrawingActivitySnake extends AppCompatActivity {
     }
 
     public void returnToMainActivity(int score) {
+        mediaPlayer.stop();
         Intent intent = new Intent(DrawingActivitySnake.this, MainActivity.class);
         intent.putExtra("Score", score);
         setResult(0, intent);
