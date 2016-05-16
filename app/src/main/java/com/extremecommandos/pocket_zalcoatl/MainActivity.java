@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////
 
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        int tmpFun
         game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
         game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
         game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
@@ -81,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         long actual = System.currentTimeMillis();
         long hours = TimeUnit.MILLISECONDS.toSeconds(actual - savedTime);
         System.out.println("minutes: " + hours);
-
     }
 
 
