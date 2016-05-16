@@ -68,5 +68,6 @@ public class FlappySnakeMain extends AppCompatActivity {
         intent.putExtra("Score", score);
         setResult(0, intent);
         finish();
+
     }
 }

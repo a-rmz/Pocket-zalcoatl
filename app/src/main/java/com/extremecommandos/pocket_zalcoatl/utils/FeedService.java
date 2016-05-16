@@ -26,7 +26,7 @@ public class FeedService extends Service {
         Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
        thread = new Thread(){
             public void run(){
-            //aquí haces tu cagadero com en el game loop
+
              while (running) {
 
                 // paara saber si funciona

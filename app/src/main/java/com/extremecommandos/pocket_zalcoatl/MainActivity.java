@@ -66,13 +66,11 @@ public class MainActivity extends AppCompatActivity {
                 game.drawSurface.resumeAnimations();
                 // esta condición se cumple cuando termina un juego
                 game.addHearts(data.getExtras().getInt("Score"));
-                Log.i("REVIEW", "SCORE NENA " + data.getExtras().getInt("Score"));
                 break;
             case Game.FLAPPY:
                 game.drawSurface.resumeAnimations();
                 // esta condición se cumple cuando termina un juego
                 game.addHearts(data.getExtras().getInt("Score"));
-                Log.i("REVIEW", "SCORE NENA " + data.getExtras().getInt("Score"));
                 break;
         }
     }
