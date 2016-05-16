@@ -28,13 +28,14 @@ public class Game{
     public static final int FLAPPY = 2;
 
     Toolbar actionMenu;
-    Button feed, rest, games, info;
+    Button feed, rest, games, info, gameFlappy, gameSnake;
+    Toolbar gamesToolbar;
     RoundCornerProgressBar life, sleep, fun;
     FloatingActionButton optionsMenu;
     OptionsMenu optionsDialog;
     ViewStub characterSurfaceView;
     DrawSurface drawSurface;
-    private boolean soundActive, notifActive;
+    private boolean soundActive, notifActive, gamesActive;
     private int score =0;
 
     PocketGod pocketGod;
@@ -50,6 +51,7 @@ public class Game{
         setSoundOn();
         setNotifOn();
 
+        gamesActive = false;
 
         pocketGod = new PocketGod(activity);
         pocketGod.createGod();
@@ -80,6 +82,10 @@ public class Game{
         rest = (Button) activity.findViewById(R.id.button_rest);
         games = (Button) activity.findViewById(R.id.button_games);
         info = (Button) activity.findViewById(R.id.button_info);
+        gameSnake = (Button) activity.findViewById(R.id.game_snake);
+        gameFlappy = (Button) activity.findViewById(R.id.game_flappy);
+
+        gamesToolbar = (Toolbar) activity.findViewById(R.id.toolbar_games);
 
         optionsMenu = (FloatingActionButton) activity.findViewById(R.id.options_menu);
 
@@ -109,9 +115,34 @@ public class Game{
         games.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fun.setProgress(fun.getProgress() + 10);
+                fun.setProgress(fun.getProgress() + 20);
+                gamesActive = !gamesActive;
+                if(gamesActive) {
+                    gamesToolbar.setVisibility(View.VISIBLE);
+                    gameSnake.setClickable(true);
+                    gameFlappy.setClickable(true);
+                } else {
+                    gamesToolbar.setVisibility(View.INVISIBLE);
+                    gameSnake.setClickable(false);
+                    gameFlappy.setClickable(false);
+                }
+            }
+        });
+
+        gameFlappy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 drawSurface.pauseAnimations();
                 Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
+                activity.startActivityForResult(intent, SNAKE);
+            }
+        });
+
+        gameSnake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawSurface.pauseAnimations();
+                Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
                 activity.startActivityForResult(intent, SNAKE);
             }
         });

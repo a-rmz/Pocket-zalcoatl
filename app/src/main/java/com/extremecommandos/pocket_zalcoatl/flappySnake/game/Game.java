@@ -82,7 +82,7 @@ public class Game {
     }
 
     public void endGame(int score) {
-        System.out.println("Game ended");   
+        System.out.println("Game ended");
         returnToMainActivity(score);
     }
 
