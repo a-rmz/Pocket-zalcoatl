@@ -125,13 +125,15 @@ public class FeedService extends Service {
     @Override
     public void onDestroy(){
         running= false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(thread != null) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            super.onDestroy();
+            Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
         }
-        super.onDestroy();
-        Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
     }
 
     public int getCountFeed(){
