@@ -1,6 +1,7 @@
 package com.extremecommandos.pocket_zalcoatl.flappySnake;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +19,8 @@ public class FlappySnakeMain extends AppCompatActivity {
     FrameLayout frameLayout;
     GameSurface gameSurface;
 
+    MediaPlayer mediaPlayer;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,8 @@ public class FlappySnakeMain extends AppCompatActivity {
         frameLayout.removeAllViews();
         frameLayout.addView(gameSurface);
 
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.Artifact_The_Dark_Contenent);
+        mediaPlayer.start();
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -69,6 +73,7 @@ public class FlappySnakeMain extends AppCompatActivity {
     }
 
     public void returnToMainActivity(int score) {
+        mediaPlayer.stop();
         Intent intent = new Intent(FlappySnakeMain.this, MainActivity.class);
         intent.putExtra("Score", score);
         setResult(0, intent);
