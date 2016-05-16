@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         game.pocketGod.setHearths(shared.getInt(getString(R.string.hearths), 50));
         game.pocketGod.setFun(shared.getInt(getString(R.string.fun), 50));
         game.pocketGod.setHunger(shared.getInt(getString(R.string.hunger), 50));
-        game.pocketGod.setLife(shared.getInt(getString(R.string.life), 50));
+        game.pocketGod.setSleep(shared.getInt(getString(R.string.sleep), 50));
+        game.updateStatBars();
         long savedTime = shared.getLong(getString(R.string.date), 0);
 
     }
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(getString(R.string.hearths), game.getHearths());
         editor.putInt(getString(R.string.fun), game.getFun());
         editor.putInt(getString(R.string.hunger), game.getHunger());
-        editor.putInt(getString(R.string.life), game.getLife());
+        editor.putInt(getString(R.string.sleep), game.getSleep());
         editor.putLong(getString(R.string.date), System.currentTimeMillis());
         editor.apply();
     }

@@ -95,9 +95,13 @@ public class Game{
     }
 
     protected void updateStatBars() {
-        if(pocketGod.getLife() <= 100 && pocketGod.getLife() > 60) {
+        life.setProgress(pocketGod.getHunger());
+        fun.setProgress(pocketGod.getFun());
+        sleep.setProgress(pocketGod.getSleep());
+
+        if(pocketGod.getHunger() <= 100 && pocketGod.getHunger() > 60) {
             life.setProgressColor(activity.getResources().getColor(R.color.normal));
-        } else if(pocketGod.getLife() <= 60 && pocketGod.getLife() > 25) {
+        } else if(pocketGod.getHunger() <= 60 && pocketGod.getHunger() > 25) {
             life.setProgressColor(activity.getResources().getColor(R.color.warning));
         } else {
             life.setProgressColor(activity.getResources().getColor(R.color.critic));
@@ -111,12 +115,12 @@ public class Game{
             fun.setProgressColor(activity.getResources().getColor(R.color.critic));
         }
 
-        if(pocketGod.getFun() <= 100 && pocketGod.getFun() > 60) {
-            fun.setProgressColor(activity.getResources().getColor(R.color.normal));
-        } else if(pocketGod.getFun() <= 60 && pocketGod.getFun() > 25) {
-            fun.setProgressColor(activity.getResources().getColor(R.color.warning));
+        if(pocketGod.getSleep() <= 100 && pocketGod.getSleep() > 60) {
+            sleep.setProgressColor(activity.getResources().getColor(R.color.normal));
+        } else if(pocketGod.getSleep() <= 60 && pocketGod.getSleep() > 25) {
+            sleep.setProgressColor(activity.getResources().getColor(R.color.warning));
         } else {
-            fun.setProgressColor(activity.getResources().getColor(R.color.critic));
+            sleep.setProgressColor(activity.getResources().getColor(R.color.critic));
         }
     }
 
@@ -125,14 +129,18 @@ public class Game{
         feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                life.setProgress(life.getProgress() + 10);
+                pocketGod.setHunger(pocketGod.getHunger() + 5);
+                updateStatBars();
             }
         });
 
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sleep.setProgress(sleep.getProgress() + 10);
+                System.out.println("prevslp: " + pocketGod.getSleep());
+                pocketGod.setSleep(pocketGod.getSleep() + 5);
+                System.out.println("prevslp: " + pocketGod.getSleep());
+                updateStatBars();
             }
         });
 
@@ -141,7 +149,6 @@ public class Game{
             public void onClick(View v) {
                 gamesActive = !gamesActive;
                 if (gamesActive) {
-                    fun.setProgress(fun.getProgress() + 20);
                     gamesToolbar.setVisibility(View.VISIBLE);
                     gameSnake.setClickable(true);
                     gameFlappy.setClickable(true);
@@ -150,6 +157,7 @@ public class Game{
                     gameSnake.setClickable(false);
                     gameFlappy.setClickable(false);
                 }
+                updateStatBars();
             }
         });
 
@@ -159,6 +167,7 @@ public class Game{
                 drawSurface.pauseAnimations();
                 Intent intent = new Intent(activity.getApplicationContext(), DrawingActivitySnake.class);
                 activity.startActivityForResult(intent, SNAKE);
+                pocketGod.setFun(pocketGod.getFun() + 5);
             }
         });
 
@@ -169,6 +178,7 @@ public class Game{
 
                 Intent intent = new Intent(activity.getApplicationContext(), FlappySnakeMain.class);
                 activity.startActivityForResult(intent, SNAKE);
+                pocketGod.setFun(pocketGod.getFun() + 5);
             }
         });
 
@@ -178,6 +188,9 @@ public class Game{
                 life.setProgress(0);
                 sleep.setProgress(0);
                 fun.setProgress(0);
+                pocketGod.setSleep(0);
+                pocketGod.setFun(0);
+                pocketGod.setHunger(0);
             }
         });
     }
@@ -244,8 +257,8 @@ public class Game{
         return pocketGod.getHearths();
     }
 
-    public int getLife() {
-        return pocketGod.getLife();
+    public int getSleep() {
+        return pocketGod.getSleep();
     }
 
     public int getFun() {
